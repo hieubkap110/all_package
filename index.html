@@ -21,18 +21,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            /* height: 100vh; */
             flex-direction: column;
             text-align: center;
             padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
+            padding: 20px;
             border-radius: 5px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            max-width: 500px;
+            /* max-width: 500px; */
             width: 100%;
         }
 
@@ -55,11 +57,11 @@
         }
 
         .links a {
-            width: 350px;
+            width: 100%;
             text-decoration: none;
             font-size: 18px;
             font-weight: 500;
-            padding: 12px 20px;
+            padding: 15px 20px;
             transition: all 0.3s ease;
             color: #fff;
             background: linear-gradient(135deg, #000000, #FE2C55, #25F4EE);
@@ -69,6 +71,7 @@
             text-align: left;
             font-weight: 300;
             border-radius: 8px;
+            margin-right: 10px;
         }
 
         .links a:hover {
@@ -108,6 +111,85 @@
             font-size: 12px;
             font-style: italic;
         }
+
+        .case-study-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 20px;
+            justify-content: center;
+        }
+
+        @media (max-width: 992px) {
+            .case-study-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-study-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .case-study {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .case-study:hover {
+            transform: translateY(-5px);
+        }
+
+        .preview {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .preview iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        .case-study h3 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #222;
+        }
+
+        .case-study p {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #000000, #FE2C55, #25F4EE);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .view-btn:hover {
+            background: linear-gradient(135deg, #25F4EE, #FE2C55, #000000);
+        }
     </style>
 </head>
 
@@ -130,7 +212,8 @@
             </div>
 
             <div>
-                <a href="./shopee_plant/index.html" target="_blank">3.XDS Shopee <span class="small">(Bảo trì)</span></a>
+                <a href="./shopee_plant/index.html" target="_blank">3.XDS Shopee <span class="small">(Bảo
+                        trì)</span></a>
                 <button class="convert-btn" onclick="downloadImage('./shopee_plant/index.html?convert=1')">
                     Tải ảnh
                 </button>
@@ -143,7 +226,8 @@
                 </button>
             </div>
             <div>
-                <a href="./shopee_plant/order.html" target="_blank">5.Tăng lượt bán, đánh giá <span class="small">(Bảo trì)</span></a>
+                <a href="./shopee_plant/order.html" target="_blank">5.Tăng lượt bán, đánh giá <span class="small">(Bảo
+                        trì)</span></a>
                 <button class="convert-btn" onclick="downloadImage('./shopee_plant/order.html?convert=1')">
                     Tải ảnh
                 </button>
@@ -151,11 +235,52 @@
         </div>
     </div>
 
-    <script>
-        const downloadImage = (package) => {
-            window.open(package, '_blank');
-        }
-    </script>
+    <div>
+
+        <div class="case-study-container">
+            <!-- Case Study 1 -->
+            <div class="case-study">
+                <div class="preview">
+                    <iframe loading="lazy"
+                        src="https://www.canva.com/design/DAGcJzAG5so/tsEK2pJNRE4yQWPmTQqMRw/view?embed"
+                        allowfullscreen></iframe>
+                </div>
+                <h3>Case Study: Xây dựng gian hàng TikTok Shop</h3>
+                <p>Phương pháp tối ưu TikTok Shop để tăng doanh số.</p>
+                <a href="https://www.canva.com/design/DAGcJzAG5so/tsEK2pJNRE4yQWPmTQqMRw/view" target="_blank"
+                    class="view-btn">Xem chi tiết</a>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study">
+                <div class="preview">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAGcExample2/view?embed"
+                        allowfullscreen></iframe>
+                </div>
+                <h3>Case Study: Booking KOL hiệu quả</h3>
+                <p>Chiến lược hợp tác với KOL để tối đa hóa lợi nhuận.</p>
+                <a href="https://www.canva.com/design/DAGcExample2/view" target="_blank" class="view-btn">Xem chi
+                    tiết</a>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study">
+                <div class="preview">
+                    <iframe loading="lazy"
+                        src=" https://www.canva.com/design/DAGVr39Jo6Y/jJzT70EqNMba14XdOVl4Qg/view?embed"
+                        allowfullscreen></iframe>
+                </div>
+                <h3>Case Study: Tăng trưởng Shopee</h3>
+                <p>Cách tận dụng Shopee Ads và SEO để tăng doanh số.</p>
+                <a href="https://www.canva.com/design/jJzT70EqNMba14XdOVl4Qg/view" target="_blank" class="view-btn">Xem
+                    chi
+                    tiết</a>
+            </div>
+            <script>
+                const downloadImage = (package) => {
+                    window.open(package, '_blank');
+                }
+            </script>
 </body>
 
 </html>
