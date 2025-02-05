@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
-         body {
+        body {
             font-family: "Quicksand", sans-serif;
             background-color: #f2f5fc;
             margin: 0;
@@ -229,5 +229,26 @@
         </tbody>
     </table>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    function capturePageAsImage() {
+        html2canvas(document.body, { scale: 2 }).then(canvas => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'XDS_Tiktok.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            setTimeout(() => {
+                window.close();
+            }, 150);
+        });
+    }
+
+    if (window.location.search.includes('convert=1')) {
+        setTimeout(capturePageAsImage, 100);
+    }
+</script>
 
 </html>
