@@ -90,7 +90,7 @@
         <thead>
             <tr>
                 <th colspan="6" style="font-size: 30px;">GÓI CHẠY FOLLOW SHOPEE</th>
-                
+
             </tr>
             <tr>
                 <th></th>
@@ -129,6 +129,8 @@
             </tr>
         </tbody>
     </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         document.querySelectorAll('.price').forEach(el => {
             const priceValue = parseInt(el.innerText.replace(/\./g, ''), 10);
@@ -138,6 +140,25 @@
                 currency: 'VND'
             }).format(priceValue);
         });
+
+        function capturePageAsImage() {
+            html2canvas(document.body, { scale: 2 }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'Follow_Shopee.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                setTimeout(() => {
+                    window.close();
+                }, 150);
+            });
+        }
+
+        if (window.location.search.includes('convert=1')) {
+            setTimeout(capturePageAsImage, 100);
+        }
     </script>
 </body>
 
