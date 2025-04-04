@@ -1,126 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tổng hợp các dịch vụ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <title>Danh sách Dịch vụ - Bảng</title>
+    <!-- Import Google Fonts: Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(90deg, #69C9D0, #EE1D52);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
 
-    <link rel="stylesheet" href="./style.css">
+        .table-container {
+            background: #000;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .table-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        th {
+            background: #EE1D52;
+            font-size: 1.2em;
+        }
+
+        tr {
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        tr:hover {
+            cursor: pointer;
+            background: #111;
+            transform: scale(1.01);
+        }
+
+        a {
+            color: #69C9D0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #EE1D52;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Hiệu ứng Particles.js -->
-    <div id="particles-js"></div>
-    <div class="container" id="content">
-        <h1>TỔNG HỢP CÁC DỊCH VỤ</h1>
-        <div class="links">
-            <div>
-                <a href="./booking_plans/index.html" target="_blank">1.Booking</a>
-                <button class="convert-btn" onclick="downloadImage('./booking_plans/index.html?convert=1')">
-                    Tải ảnh
-                </button>
-            </div>
-
-            <div>
-                <a href="./tiktok_plant/index.html" target="_blank">2.XDS Tiktok</a>
-                <button class="convert-btn" onclick="downloadImage('./tiktok_plant/index.html?convert=1')">
-                    Tải ảnh
-                </button>
-            </div>
-
-            <div>
-                <a href="./shopee_plant/index.html" target="_blank">3.XDS Shopee <span class="small">(Bảo
-                        trì)</span></a>
-                <button class="convert-btn" onclick="downloadImage('./shopee_plant/index.html?convert=1')">
-                    Tải ảnh
-                </button>
-            </div>
-
-            <div>
-                <a href="./shopee_plant/follow.html" target="_blank">4.Tăng follow Shopee</a>
-                <button class="convert-btn" onclick="downloadImage('./shopee_plant/follow.html?convert=1')">
-                    Tải ảnh
-                </button>
-            </div>
-            <div>
-                <a href="./shopee_plant/order.html" target="_blank">5.Tăng lượt bán, đánh giá <span class="small">(Bảo
-                        trì)</span></a>
-                <button class="convert-btn" onclick="downloadImage('./shopee_plant/order.html?convert=1')">
-                    Tải ảnh
-                </button>
-            </div>
-            <div>
-                <a href="./tiktok_booking/index.html" target="_blank">
-                    6. Xây dựng gian hàng + Booking
-                </a>
-                <button class="convert-btn" onclick="downloadImage('./tiktok_booking/index.html?convert=1')">
-                    Tải ảnh
-                </button>
-            </div>
-        </div>
+    <div class="table-container">
+        <h2>Danh sách Dịch vụ</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên Dịch Vụ</th>
+                    <th>Liên kết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Vận hành + Video</td>
+                    <td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Vận hành + Booking</td>
+                    <td><a href="./services/booking_vh.html" target="_blank">Truy cập</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Xây dựng gian hàng</td>
+                    <td><a href="./services/xaydung_shop.html" target="_blank">Truy cập</a></td>
+                </tr>
+                <!-- Thêm các dịch vụ khác nếu cần -->
+            </tbody>
+        </table>
     </div>
-
-    <div>
-        <h1 style="margin-top: 40px;">TỔNG HỢP CASE STUDY</h1>
-        <div class="case-study-container">
-            <!-- Case Study 1 -->
-            <div class="case-study">
-                <div class="preview">
-                    <iframe loading="lazy"
-                        src="https://www.canva.com/design/DAGcJzAG5so/tsEK2pJNRE4yQWPmTQqMRw/view?embed"
-                        allowfullscreen></iframe>
-                </div>
-                <h3>Case Study: Xây dựng gian hàng TikTok Shop</h3>
-                <p>Phương pháp tối ưu TikTok Shop để tăng doanh số.</p>
-                <a href="https://www.canva.com/design/DAGcJzAG5so/tsEK2pJNRE4yQWPmTQqMRw/view" target="_blank"
-                    class="view-btn">Xem chi tiết</a>
-            </div>
-
-            <!-- Case Study 2 -->
-            <div class="case-study">
-                <div class="preview">
-                    <iframe loading="lazy" src="https://www.canva.com/design/DAGcExample2/view?embed"
-                        allowfullscreen></iframe>
-                </div>
-                <h3>Case Study: Booking KOL hiệu quả</h3>
-                <p>Chiến lược hợp tác với KOL để tối đa hóa lợi nhuận.</p>
-                <a href="https://www.canva.com/design/DAGcExample2/view" target="_blank" class="view-btn">Xem chi
-                    tiết</a>
-            </div>
-
-            <!-- Case Study 3 -->
-            <div class="case-study">
-                <div class="preview">
-                    <iframe loading="lazy"
-                        src=" https://www.canva.com/design/DAGVr39Jo6Y/jJzT70EqNMba14XdOVl4Qg/view?embed"
-                        allowfullscreen></iframe>
-                </div>
-                <h3>Case Study: Tăng trưởng Shopee</h3>
-                <p>Cách tận dụng Shopee Ads và SEO để tăng doanh số.</p>
-                <a href="https://www.canva.com/design/jJzT70EqNMba14XdOVl4Qg/view" target="_blank" class="view-btn">Xem
-                    chi
-                    tiết</a>
-            </div>
-            <script>
-                const downloadImage = (package) => {
-                    window.open(package, '_blank');
-                }
-
-                particlesJS("particles-js", {
-                    particles: {
-                        number: { value: 100 },
-                        shape: { type: "circle" },
-                        size: { value: 3 },
-                        move: { speed: 2 },
-                        line_linked: { enable: true, color: "#ffffff" },
-                    },
-                    interactivity: { events: { onhover: { enable: true, mode: "repulse" } } },
-                });
-            </script>
 </body>
 
 </html>

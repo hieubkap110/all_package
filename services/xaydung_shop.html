@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gói Xây Dựng Gian Hàng - Chi Tiết Từng Hạng Mục</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Reset & cơ bản */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(90deg, #69C9D0, #EE1D52);
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Tiêu đề chính với gradient chữ */
+    h1.main-title {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    /* Card chung */
+    .card-custom {
+      background: #191919;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Header của card */
+    .card-header-custom {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #EE1D52;
+      margin-top: 12px;
+    }
+    .card-header-custom i.crown {
+      color: #EE1D52;
+      margin-left: 8px;
+      font-size: 1.2em;
+    }
+    /* Góc giá */
+    .price-corner {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: #111;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 2px solid #EE1D52;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.8);
+      text-align: right;
+    }
+    .price-corner .price-label {
+      font-size: 0.85rem;
+      color: #bbb;
+    }
+    .price-corner .new-price {
+      font-weight: bold;
+      color: #EE1D52;
+      font-size: 1.5rem;
+    }
+    /* Layout ngang: sử dụng Flexbox */
+    .horizontal-layout {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .half {
+      flex: 1;
+      min-width: 300px;
+    }
+    .table-container {
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    thead {
+      background: #222;
+    }
+    thead tr {
+      border-bottom: 2px solid #EE1D52;
+    }
+    thead th {
+      padding: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    tbody tr {
+      border-bottom: 1px solid #333;
+    }
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+    tbody td {
+      padding: 12px;
+      line-height: 1.4;
+      vertical-align: top;
+    }
+    /* Trong bảng EDUCI, chỉ có 2 cột: NỘI DUNG HẠNG MỤC */
+    tbody td:first-child {
+      display: flex;
+      align-items: center;
+    }
+    tbody td:first-child i {
+      color: #EE1D52;
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    /* Bảng BRAND: bỏ cột bên phụ trách, hiển thị 2 cột */
+    .brand-table {
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      margin-top: 20px;
+    }
+    .brand-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .brand-table thead {
+      background: #222;
+    }
+    .brand-table thead tr {
+      border-bottom: 2px solid #EE1D52;
+    }
+    .brand-table thead th {
+      padding: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .brand-table tbody tr {
+      border-bottom: 1px solid #333;
+    }
+    .brand-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .brand-table tbody td {
+      padding: 12px;
+      line-height: 1.4;
+      vertical-align: top;
+    }
+    /* Ở bảng BRAND, cột đầu tiên hiển thị icon bookmark cùng tên hạng mục */
+    .brand-table tbody td:first-child {
+      display: flex;
+      align-items: center;
+    }
+    .brand-table tbody td:first-child i {
+      color: #EE1D52;
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    /* Phần Quà tặng */
+    .gift-section {
+      background: #111;
+      border: 2px solid #EE1D52;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+    }
+    .gift-section .gift-header {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      color: #69C9D0;
+    }
+    .gift-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+    }
+    .gift-item i {
+      color: #EE1D52;
+      margin-right: 10px;
+      font-size: 1.1rem;
+    }
+    .gift-item span {
+      font-size: 0.95rem;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card-custom {
+        padding: 20px;
+      }
+      h1.main-title {
+        font-size: 1.8rem;
+      }
+      .price-corner {
+        top: 10px;
+        right: 15px;
+        padding: 8px 12px;
+      }
+      thead th, .brand-table thead th {
+        font-size: 0.85rem;
+      }
+      tbody td, .brand-table tbody td {
+        font-size: 0.85rem;
+      }
+      .horizontal-layout {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">BÁO GIÁ XÂY DỰNG GIAN HÀNG TIKTOK</h1>
+
+    <div class="card-custom">
+      <!-- Price Corner -->
+      <div class="price-corner">
+        <div class="price-label">Giá chỉ còn</div>
+        <div class="new-price">12.740.000đ</div>
+      </div>
+
+      <div class="card-header-custom">
+        HẠNG MỤC CÔNG VIỆC <i class="fas fa-crown crown"></i>
+      </div>
+
+      <!-- Layout ngang: chia thành 2 phần -->
+      <div class="horizontal-layout">
+        <!-- Phần chi tiết bảng (EDUCI) -->
+        <div class="half">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>HẠNG MỤC CÔNG VIỆC EDUCI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Các hàng có bên phụ trách EDUCI -->
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Kiểm tra tiêu chí sản phẩm, đảm bảo tuân thủ chính sách TikTok Shop về nội dung, hình ảnh, giấy tờ.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Nghiên cứu từ khóa có lượt tìm kiếm cao, phù hợp ngành hàng để tối ưu khả năng hiển thị sản phẩm.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Đặt tên sản phẩm chuẩn SEO, ngắn gọn, hấp dẫn, tối ưu tìm kiếm trên TikTok Shop.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Viết mô tả sản phẩm chuẩn SEO, nêu bật đặc điểm, công dụng, lợi ích giúp tăng tỷ lệ chuyển đổi.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Đăng sản phẩm lên TikTok Shop theo chuẩn SEO, tối ưu thông tin, hình ảnh để tăng khả năng hiển thị.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Thiết kế ảnh bìa sản phẩm chuyên nghiệp, làm nổi bật thương hiệu và thu hút khách hàng.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Thiết kế banner quảng cáo hấp dẫn tăng tỉ lệ lượt nhấp vào sản phẩm.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Thiết kế bộ ảnh mô tả sản phẩm (5 ảnh/sản phẩm) cho 5 sản phẩm nổi bật nhất.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Cài đặt chương trình giảm giá, ưu đãi để kích thích mua hàng và tăng tỷ lệ chuyển đổi.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Cung cấp bộ template banner sẵn có, hỗ trợ khách hàng dễ dàng triển khai chiến dịch marketing.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /half EDUCI -->
+
+        <!-- Phần BRAND và Quà tặng: tách thành 2 khối riêng trên cùng một bên -->
+        <div class="half">
+          <!-- Bảng BRAND -->
+          <div class="brand-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>HẠNG MỤC CÔNG VIỆC BRAND</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Các hàng có bên phụ trách BRAND, cột đầu tiên hiển thị icon bookmark cùng tên hạng mục -->
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Cung cấp danh sách sản phẩm (tên, giá, mô tả, hình ảnh, giấy tờ liên quan nếu cần).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Cung cấp hình ảnh sản phẩm đạt chuẩn, rõ nét, thu hút, phù hợp quy định TikTok Shop.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Xác nhận các mẫu thiết kế banner và hình ảnh sản phẩm.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Phần Quà tặng -->
+          <div class="gift-section">
+            <div class="gift-header">
+              QUÀ TẶNG ĐẶC BIỆT TRỊ GIÁ 40Tr <i class="fas fa-gift"></i>
+            </div>
+            <div class="item-list">
+              <div class="gift-item">
+                <i class="fa-solid fa-gift"></i>
+                <span>Khoá học TIKTOK MASTER TỪ A ĐẾN Z của Đoàn Quyền Anh</span>
+              </div>
+              <div class="gift-item">
+                <i class="fa-solid fa-gift"></i>
+                <span>Khoá Học TIKTOK SHOP ADS - Bùng Nổ Doanh Thu Quảng Cáo</span>
+              </div>
+              <div class="gift-item">
+                <i class="fa-solid fa-gift"></i>
+                <span>Khóa học LIVESTREAM chuyển đổi - tăng tốc doanh thu</span>
+              </div>
+              <div class="gift-item">
+                <i class="fa-solid fa-gift"></i>
+                <span>Khóa Học Video Ngắn Chuyển Đổi - Bứt Phá Doanh Thu</span>
+              </div>
+              <div class="gift-item">
+                <i class="fa-solid fa-gift"></i>
+                <span>Tham gia Tiktok Shop Partner miễn phí</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- /half BRAND & Gift -->
+      </div><!-- /horizontal-layout -->
+    </div><!-- /card-custom -->
+  </div><!-- /container -->
+</body>
+</html>
