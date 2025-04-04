@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking & Quay Dựng Tiktok - Gộp Nội Dung</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+  <style>
+    /* Các style chung */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(45deg, #69C9D0, #EE1D52, #191919);
+      color: #FFFFFF;
+      margin: 0;
+      padding: 20px;
+    }
+    .container-alt {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .header-alt {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header-alt h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .header-alt p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .section-card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+      padding: 20px;
+      position: relative; /* Cho phép định vị tuyệt đối bên trong */
+    }
+    .section-card h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    .section-card h2:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #EE1D52;
+      border-radius: 3px;
+    }
+    .section-card .crown {
+      color: #EE1D52;
+      margin-right: 10px;
+    }
+    /* Style cho phần giá gói */
+    .pricing-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .pricing-card {
+      background: #222;
+      border: 2px solid #EE1D52;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(238,29,82,0.7);
+      color: #FFFFFF;
+    }
+    .pricing-card h3 {
+      font-size: 1.8em;
+      color: #EE1D52;
+      margin-bottom: 10px;
+    }
+    .pricing-card p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+    .sub-section {
+      margin-bottom: 30px;
+    }
+    .sub-section h3 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #EE1D52;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .content-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .content-list li {
+      border-bottom: 1px solid #333;
+      padding: 10px 0;
+    }
+    .content-list li:last-child {
+      border-bottom: none;
+    }
+    .content-list i {
+      margin-right: 10px;
+      color: #EE1D52;
+    }
+    /* Style cho item và sub-item */
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .item a {
+      flex-shrink: 0;
+      font-size: 1.2em;
+      color: #EE1D52;
+    }
+    .item > div {
+      line-height: 1.5;
+    }
+    .item span {
+      font-weight: bold;
+    }
+    .sub-item {
+      margin-left: 10px;
+      font-size: 0.9em;
+      color: #ccc;
+      font-style: italic;
+    }
+    /* Responsive: Nếu màn hình nhỏ, đặt giá gói theo flow bên dưới nội dung, bỏ hiệu ứng */
+    @media (max-width: 768px) {
+      .pricing-container {
+        position: static;
+        margin-bottom: 20px;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-alt">
+    <div class="header-alt">
+      <h1>Booking & Quay Dựng Tiktok</h1>
+      <p>Báo giá và dịch vụ chuyên nghiệp cho TikTok</p>
+    </div>
+    <div class="sections">
+      <!-- Card Gộp Vận Hành & Quay Dựng Tiktok -->
+      <div class="section-card">
+        <!-- Phần Giá hiển thị ở góc trên bên phải (trên desktop) hoặc theo flow (trên mobile) -->
+        <div class="pricing-container">
+          <div class="pricing-card">
+            <h3><b>29.160.000 đ</b></h3>
+            <p>20 VIDEO</p>
+            <p>1.450K/VIDEO</p>
+          </div>
+        </div>
+        <h2><i class="fas fa-crown crown"></i>Vận Hành & Quay Dựng Tiktok</h2>
+        <!-- Phần Vận Hành -->
+        <div class="sub-section">
+          <h3>Vận Hành Tiktok</h3>
+          <ul class="content-list">
+            <li><i class="fa-solid fa-bookmark"></i>Phân tích KPI: GMV, ROI, tỷ lệ chuyển đổi, tỷ lệ hoàn hủy</li>
+            <li><i class="fa-solid fa-bookmark"></i>Báo cáo hiệu suất định kỳ (tuần/tháng) với biểu đồ và đề xuất cải thiện</li>
+            <li><i class="fa-solid fa-bookmark"></i>Lập kế hoạch tăng trưởng theo từng giai đoạn (ngắn hạn, dài hạn)</li>
+            <li><i class="fa-solid fa-bookmark"></i>Tối ưu danh mục sản phẩm chuẩn SEO: Tiêu đề, hình ảnh, nội dung</li>
+            <li><i class="fa-solid fa-bookmark"></i>Phân tích tỷ lệ chuyển đổi và đề xuất cải tiến cho từng sản phẩm</li>
+            <li><i class="fa-solid fa-bookmark"></i>Lên ý tưởng và triển khai các CTKM định kỳ phù hợp với chiến lược của TikTok</li>
+            <li><i class="fa-solid fa-bookmark"></i>Nghiên cứu xu hướng và tối ưu hóa chương trình ưu đãi để thu hút khách hàng mới</li>
+            <!-- Nội dung mới thay cho "Chạy quảng cáo phân lớp" -->
+            <li>
+              <div class="item">
+                <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+                <div>
+                  <span>Chạy quảng cáo phân lớp</span>
+                  <div class="sub-item">Quảng cáo chuyển đổi</div>
+                  <div class="sub-item">Quảng cáo GMV</div>
+                  <div class="sub-item">Quảng cáo livestream và retargeting</div>
+                </div>
+              </div>
+            </li>
+            <!-- Nội dung mới thay cho "Phân tích và tối ưu quảng cáo hàng ngày" -->
+            <li>
+              <div class="item">
+                <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+                <div>
+                  <span>Phân tích và tối ưu quảng cáo hàng ngày</span>
+                  <div class="sub-item">Điều chỉnh ngân sách</div>
+                  <div class="sub-item">Tối ưu nội dung và đối tượng mục tiêu</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- Phần Quay Dựng -->
+        <div class="sub-section">
+          <h3>Quay Dựng Tiktok</h3>
+          <ul class="content-list">
+            <li><i class="fa-solid fa-bookmark"></i>Kịch bản quay chi tiết: Nghiên cứu và tối ưu kịch bản</li>
+            <li><i class="fa-solid fa-bookmark"></i>Nhân sự quay chuyên nghiệp: Đội ngũ chuyên nghiệp hoặc hỗ trợ book KOC review nội bộ</li>
+            <li><i class="fa-solid fa-bookmark"></i>Dựng Video hoàn thiện: Cắt ghép, chỉnh màu, setup bối cảnh và phông nền</li>
+          </ul>
+        </div>
+        <!-- Phần Thiết Bị Quay -->
+        <div class="sub-section">
+          <h3>Thiết Bị Quay</h3>
+          <ul class="content-list">
+            <li><i class="fas fa-video"></i>Máy quay Sony A73, Lens Tamron 28-75mm F2.8, Lens Sony FE 50mm</li>
+            <li><i class="fas fa-microphone"></i>Microphone Rode Wireless, Gimbal DJI Ronin-S, Đèn theo bối cảnh</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
