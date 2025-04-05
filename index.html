@@ -2,8 +2,8 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Danh sách Dịch vụ - Bảng</title>
     <!-- Import Google Fonts: Quicksand -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
@@ -18,6 +18,8 @@
             min-height: 100vh;
             padding: 20px;
             color: #fff;
+            position: relative;
+            overflow: hidden;
         }
 
         .table-container {
@@ -27,6 +29,7 @@
             padding: 30px;
             max-width: 700px;
             width: 100%;
+            z-index: 1;
         }
 
         .table-container h2 {
@@ -61,6 +64,7 @@
             cursor: pointer;
             background: #111;
             transform: scale(1.01);
+            font-weight: bold;
         }
 
         a {
@@ -73,6 +77,30 @@
         a:hover {
             text-decoration: underline;
             color: #EE1D52;
+        }
+
+        /* Hiệu ứng con mèo nhảy */
+        .cat {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 80px;
+            z-index: 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -108,6 +136,10 @@
             </tbody>
         </table>
     </div>
+    <!-- Hình ảnh con mèo với hiệu ứng nhảy -->
+    <img class="cat"
+        src="https://png.pngtree.com/png-clipart/20190117/ourmid/pngtree-world-cup-expression-who-else-world-cup-cat-emoticon-pack-cute-png-image_424846.jpg"
+        alt="Cat Bouncing">
 </body>
 
 </html>
