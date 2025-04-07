@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phần Booking - Báo Giá Vận Hành &amp; Booking TikTok</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Bootstrap CSS (nếu bạn sử dụng grid) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+  
+  <style>
+    /* Cài đặt chung */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(90deg, #69C9D0, #EE1D52);
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+    }
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    /* Card style */
+    .card-custom {
+      position: relative;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #333;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+    }
+    .card-custom .card-header {
+      background: #111;
+      padding: 15px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+      color: #fff;
+      border-bottom: 2px solid #EE1D52;
+    }
+    /* Thêm icon vương miện vào header */
+    .card-custom .card-header .crown {
+      color: #EE1D52;
+      margin-left: 8px;
+      font-size: 1.2em;
+    }
+    .card-custom .card-body {
+      padding: 20px 25px;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .section-head {
+      background: #222;
+      color: #69C9D0;
+      padding: 10px 15px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      border-left: 4px solid #EE1D52;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    /* Các mục */
+    .item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed #333;
+      padding-bottom: 8px;
+    }
+    /* Loại bỏ border mục cuối */
+    .item:last-child {
+      border-bottom: none;
+    }
+    .item a {
+      color: #EE1D52;
+      margin-right: 10px;
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+    .item > div {
+      flex: 1;
+    }
+    .item > div > span {
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .item i.fa-check {
+      color: #69C9D0;
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+    /* Mục con */
+    .sub-item {
+      font-size: 0.85rem;
+      color: #ccc;
+      line-height: 1.3;
+      margin-bottom: 5px;
+      font-style: italic;
+      margin-left: 25px;
+    }
+    /* Price Corner (nếu cần hiển thị giá ở góc) */
+    .price-corner {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      text-align: right;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+    }
+    .price-corner .old-price {
+      text-decoration: line-through;
+      color: #aaa;
+      font-size: 1rem;
+      display: block;
+    }
+    .price-corner .new-price {
+      font-weight: bold;
+      color: #EE1D52;
+      font-size: 1.5rem;
+      display: block;
+    }
+    /* Responsive cho điện thoại: hiển thị giá dưới nội dung */
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      .main {
+        padding: 0 !important;
+      }
+      .item,
+      .sub-item {
+        font-size: 0.8rem;
+      }
+      .section-head {
+        font-size: 1rem;
+        padding: 8px 12px;
+      }
+      .price-corner {
+        position: static;
+        margin-top: 15px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        border: 2px solid #fff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        text-align: center;
+      }
+      /* Đổi thứ tự hiển thị của card */
+      .card-custom {
+        display: flex;
+        flex-direction: column;
+      }
+      .card-custom .card-header {
+        order: 0;
+      }
+      .card-custom .card-body {
+        order: 1;
+      }
+      .card-custom .price-corner {
+        order: 2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main" id="content">
+    <h1>BÁO GIÁ BOOKING</h1>
+
+    <div class="card card-custom">
+      <div class="card-header">
+        HẠNG MỤC BOOKING KOC <i class="fas fa-crown crown"></i>
+      </div>
+
+      <!-- Price Corner (nếu cần, bạn có thể ẩn nếu không muốn hiển thị giá) -->
+      <div class="price-corner">
+        <span class="old-price">21.600.000đ</span>
+        <span class="new-price">18.360.000đ</span>
+      </div>
+
+      <div class="card-body">
+        <div class="section-head">booking koc</div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Số lượng KOC liên hệ hợp tác lên bài</span>
+          </div>
+          <span class="font-weight-bolder">80</span>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Số follow KOC trung bình trong gói</span>
+          </div>
+          <span class="font-weight-bolder">2N - 500N Followers</span>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Số lượng KOC tìm kiếm</span>
+          </div>
+          <span class="font-weight-bolder">200</span>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Tư vấn chiến lược Booking KOC và chốt phương án tìm KOC</span>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Phân tích kênh KOC</span>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Xây dựng Brief booking KOC</span>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Hỗ trợ làm bảng tiêu chuẩn video chuyển đổi cho KOC</span>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Hỗ trợ kiểm duyệt kịch bản, video ngắn KOC</span>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Thời gian cung cấp danh sách</span>
+          </div>
+          <span class="font-weight-bolder">2 - 4 ngày</span>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Hỗ trợ nghiệm thu nội dung video, mã code</span>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Hỗ trợ viết kịch bản video ngắn chuyển đổi cho KOC</span>
+            <div class="sub-item">Với KOC nào cần hỗ trợ viết</div>
+          </div>
+        </div>
+        <div class="item">
+          <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+          <div>
+            <span>Chưa bao gồm</span>
+            <div class="sub-item">Phí booking KOC để làm video review sản phẩm</div>
+            <div class="sub-item">Phí sử dụng hình ảnh của KOC</div>
+            <div class="sub-item">Phí sản phẩm mẫu gửi KOC ( nếu có )</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Các script cần thiết (nếu cần) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
