@@ -20,6 +20,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 15px;
     }
     /* Tiêu đề chính với gradient chữ */
     h1.main-title {
@@ -122,7 +123,7 @@
       line-height: 1.4;
       vertical-align: top;
     }
-    /* Trong bảng EDUCI, chỉ có 2 cột: NỘI DUNG HẠNG MỤC */
+    /* Trong bảng EDUCI, chỉ có 1 cột với icon */
     tbody td:first-child {
       display: flex;
       align-items: center;
@@ -132,7 +133,7 @@
       margin-right: 8px;
       font-size: 1.1rem;
     }
-    /* Bảng BRAND: bỏ cột bên phụ trách, hiển thị 2 cột */
+    /* Bảng BRAND: bỏ cột bên phụ trách, hiển thị 1 cột với icon */
     .brand-table {
       background: #111;
       border-radius: 12px;
@@ -167,7 +168,6 @@
       line-height: 1.4;
       vertical-align: top;
     }
-    /* Ở bảng BRAND, cột đầu tiên hiển thị icon bookmark cùng tên hạng mục */
     .brand-table tbody td:first-child {
       display: flex;
       align-items: center;
@@ -211,7 +211,7 @@
     .gift-item span {
       font-size: 0.95rem;
     }
-    /* Responsive */
+    /* Responsive cho máy tính bảng */
     @media (max-width: 768px) {
       .card-custom {
         padding: 20px;
@@ -223,6 +223,7 @@
         top: 10px;
         right: 15px;
         padding: 8px 12px;
+        font-size: 1.3rem;
       }
       thead th, .brand-table thead th {
         font-size: 0.85rem;
@@ -232,6 +233,38 @@
       }
       .horizontal-layout {
         flex-direction: column;
+      }
+    }
+    /* Responsive cho điện thoại */
+    @media (max-width: 576px) {
+      h1.main-title {
+        font-size: 1.6rem;
+      }
+      .card-custom {
+        padding: 15px;
+      }
+      .price-corner {
+        position: static;
+        margin-bottom: 15px;
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 1.3rem;
+      }
+      .card-header-custom {
+        font-size: 1.4rem;
+        padding-bottom: 15px;
+      }
+      thead th, .brand-table thead th {
+        font-size: 0.8rem;
+      }
+      tbody td, .brand-table tbody td {
+        font-size: 0.8rem;
+      }
+      .gift-section .gift-header {
+        font-size: 1.2rem;
+      }
+      .gift-item span {
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -263,7 +296,6 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Các hàng có bên phụ trách EDUCI -->
                 <tr>
                   <td>
                     <i class="fa-solid fa-bookmark"></i>
@@ -340,7 +372,6 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Các hàng có bên phụ trách BRAND, cột đầu tiên hiển thị icon bookmark cùng tên hạng mục -->
                 <tr>
                   <td>
                     <i class="fa-solid fa-bookmark"></i>

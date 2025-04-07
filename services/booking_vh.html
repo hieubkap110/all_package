@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
 
   <style>
-    /* Nền trang: gradient ngang */
+    /* Cài đặt chung */
     body {
       font-family: 'Quicksand', sans-serif;
       background: linear-gradient(90deg, #69C9D0, #EE1D52);
@@ -25,6 +25,7 @@
     .main {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 15px;
       position: relative;
     }
 
@@ -39,7 +40,6 @@
     /* Card style */
     .card-custom {
       position: relative;
-      /* Cho phép định vị các phần tử con tuyệt đối */
       background: rgba(0, 0, 0, 0.8);
       border: 1px solid #333;
       border-radius: 12px;
@@ -75,7 +75,6 @@
       border-left: 4px solid #EE1D52;
       border-radius: 4px;
       font-size: 1.1rem;
-      /* Tiêu đề con: hiện theo dạng chữ thường */
       text-transform: uppercase;
     }
 
@@ -88,7 +87,7 @@
       padding-bottom: 8px;
     }
 
-    /* Loại bỏ border ở mục cuối cùng trong mỗi cột */
+    /* Loại bỏ border ở mục cuối cùng của mỗi cột */
     .col-md-6 .item:last-child {
       border-bottom: none;
     }
@@ -100,11 +99,11 @@
       margin-top: 2px;
     }
 
-    .item>div {
+    .item > div {
       flex: 1;
     }
 
-    .item>div>span {
+    .item > div > span {
       font-weight: 500;
       line-height: 1.4;
     }
@@ -125,7 +124,7 @@
       margin-left: 25px;
     }
 
-    /* Price Corner: hiển thị giá ở góc trên bên phải của thẻ card */
+    /* Price Corner */
     .price-corner {
       position: absolute;
       top: 15px;
@@ -158,21 +157,75 @@
       font-size: 1.2em;
     }
 
+    /* Media queries cải tiến cho desktop và máy tính bảng */
     @media (max-width: 768px) {
-
-      .item,
-      .sub-item {
-        font-size: 0.9rem;
-      }
-
       h1 {
         font-size: 1.8rem;
+      }
+
+      .card-custom .card-header {
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+
+      .card-custom .card-body {
+        padding: 15px 20px;
       }
 
       .price-corner {
         top: 10px;
         right: 10px;
         padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Media query cho điện thoại: di chuyển price-corner xuống dưới nội dung */
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .main {
+        padding: 0 !important;
+      }
+
+      .item,
+      .sub-item {
+        font-size: 0.8rem;
+      }
+
+      .section-head {
+        font-size: 1rem;
+        padding: 8px 12px;
+      }
+      
+      .price-corner {
+        position: static;
+        margin-top: 15px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        border: 2px solid #fff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+      }
+      
+      /* Sử dụng flex để thay đổi thứ tự hiển thị của các thành phần trong card */
+      .card-custom {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .card-custom .card-header {
+        order: 0;
+      }
+      
+      .card-custom .card-body {
+        order: 1;
+      }
+      
+      .card-custom .price-corner {
+        order: 2;
+        text-align: center;
       }
     }
   </style>
@@ -184,10 +237,10 @@
 
     <div class="card card-custom">
       <div class="card-header">
-        HẠNG MỤC CÔNG VIỆC VẬN HÀNH &amp; BOOKING<i class="fas fa-crown crown"></i>
+        HẠNG MỤC CÔNG VIỆC VẬN HÀNH &amp; BOOKING <i class="fas fa-crown crown"></i>
       </div>
 
-      <!-- Price Corner: giá được đặt ở góc trên bên phải -->
+      <!-- Price Corner -->
       <div class="price-corner">
         <span class="old-price">35.840.000đ</span>
         <span class="new-price">29.160.000đ</span>
@@ -195,7 +248,7 @@
 
       <div class="card-body">
         <div class="row align-items-stretch">
-          <!-- Bên trái: Vận hành -->
+          <!-- Cột bên trái: Vận hành -->
           <div class="col-md-6">
             <div class="section-head">vận hành</div>
             <div class="item">
@@ -268,7 +321,7 @@
             </div>
           </div>
 
-          <!-- Bên phải: Booking -->
+          <!-- Cột bên phải: Booking -->
           <div class="col-md-6">
             <div class="section-head">booking koc/kol</div>
             <div class="item">
