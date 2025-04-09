@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Gói Vận Hành Shopee Chuyên Sâu</title>
+  <!-- Google Font Quicksand & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    /* Ẩn scroll ngang nếu có */
+    html, body { overflow-x: hidden; }
+
+    :root {
+      --primary:   #EE4D2D;
+      --secondary: #FF5722;
+      --bg-even:   #FFF8F6;
+      --text:      #333;
+      --border:    #eee;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #FFF8F6 0%, #f5f5f5 100%);
+      color: var(--text);
+      padding: 60px 20px;
+      position: relative;
+      min-height: 100vh;
+    }
+    /* Decorative circles */
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 200px; height: 200px;
+      background: var(--primary);
+      top: -50px; left: -50px;
+    }
+    body::after {
+      width: 260px; height: 260px;
+      background: var(--secondary);
+      bottom: -80px; right: -80px;
+    }
+
+    .container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+    .title {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .table-wrapper {
+      border: 3px solid var(--primary);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+    colgroup col:first-child { width: 25%; }
+    colgroup col:last-child  { width: 75%; }
+    thead th {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 18px;
+      border-bottom: 3px solid var(--primary);
+    }
+    tbody tr:nth-child(odd)  { background: #fff; }
+    tbody tr:nth-child(even) { background: var(--bg-even); }
+    tbody tr:hover           { background: #FFECE6; }
+    tbody td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+      word-break: break-word;
+      font-size: 14px;
+    }
+    /* Phân chia cột */
+    tbody td:first-child { border-right: 1px solid var(--border); }
+    /* Icon trước mục */
+    tbody td:first-child i {
+      margin-right: 8px;
+      color: var(--primary);
+      width: 16px;
+      text-align: center;
+    }
+    .item-header {
+      font-weight: 600;
+      display: inline;
+      font-size: 16px;
+      color: var(--primary);
+    }
+    tbody ul {
+      margin: 6px 0 0 1.2em;
+      padding: 0;
+    }
+    tbody ul li {
+      margin-bottom: 6px;
+    }
+    tfoot td {
+      background: var(--secondary);
+      color: #fff;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      thead { display: none; }
+      tbody td {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+      }
+      tbody td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--primary);
+      }
+      tbody td:first-child { border-right: none; }
+      tfoot td {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">GÓI VẬN HÀNH SHOPEE CHUYÊN SÂU</div>
+    <div class="table-wrapper">
+      <table>
+        <colgroup><col><col></colgroup>
+        <thead>
+          <tr>
+            <th>Hạng mục</th>
+            <th>Chi tiết triển khai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-box-open"></i>
+              <span class="item-header">Quản lý sản phẩm &amp; khuyến mãi</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Tối ưu tiêu đề chuẩn SEO để tăng hiển thị.</li>
+                <li>Cài đặt &amp; quản lý Flashsale, mã giảm giá.</li>
+                <li>Nghiên cứu &amp; triển khai Mua kèm, Quà tặng, Combo.</li>
+                <li>Tự động hóa đẩy sản phẩm.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-bullhorn"></i>
+              <span class="item-header">Marketing nội sàn</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Cập nhật Shopee Live &amp; Shopee Video.</li>
+                <li>Cài đặt tin nhắn quảng bá &amp; TTLK.</li>
+                <li>Thiết lập danh mục &amp; top sản phẩm nổi bật.</li>
+                <li>Lập bảng phân loại (mồi, chủ lực, combo) &amp; đánh giá hiệu suất.</li>
+                <li>Phân tích chỉ số ads hàng ngày để tối ưu.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="item-header">Phân tích chỉ số shop</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Phân tích bán hàng &amp; đưa định hướng.</li>
+                <li>Đặt mục tiêu Mega Sale &amp; tháng.</li>
+                <li>Tư vấn &amp; hỗ trợ gói MKT Solution từ Shopee.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-handshake"></i>
+              <span class="item-header">Làm việc với Shopee</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Liên hệ &amp; làm việc trực tiếp với KAM/BD.</li>
+                <li>Báo cáo &amp; xử lý sự cố với KAM/BD.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-headset"></i>
+              <span class="item-header">Chăm sóc khách hàng</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Tư vấn &amp; xử lý khiếu nại, chăm sóc hậu mãi.</li>
+                <li>Hỗ trợ phản hồi &amp; đánh giá tiêu cực.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span class="item-header">Dịch vụ tư vấn shop</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Nghiên cứu thị trường &amp; giải pháp cạnh tranh.</li>
+                <li>Tư vấn quản lý kho, vận hành &amp; nhân sự Shopee.</li>
+                <li>Chọn sản phẩm mới phù hợp.</li>
+                <li>Cập nhật thông tin mới từ sàn.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-file-lines"></i>
+              <span class="item-header">Báo cáo &amp; đánh giá</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Báo cáo theo tháng.</li>
+                <li>Đánh giá công việc &amp; mục tiêu đạt được.</li>
+                <li>Đề xuất kế hoạch &amp; giải pháp tiếp theo.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Hạng mục">
+              <i class="fa-solid fa-image"></i>
+              <span class="item-header">Media</span>
+            </td>
+            <td data-label="Chi tiết">
+              <ul>
+                <li>Thiết kế media (image/banner/video) tối ưu nhận diện.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">25 triệu ₫ / 3 tháng + 3% hoa hồng</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
