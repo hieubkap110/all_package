@@ -2,114 +2,183 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Danh sách Dịch vụ - Educi</title>
-    <!-- Import Google Fonts: Quicksand -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Educi - Dịch vụ TikTok Shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
     <style>
-        html,
-        body {
-            height: 100%;
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
-            padding: 0;
+            padding: 0
         }
 
         body {
             font-family: 'Quicksand', sans-serif;
             background: linear-gradient(90deg, #69C9D0, #EE1D52);
             color: #fff;
-            position: relative;
-            /* Bỏ overflow: hidden để cho phép cuộn */
-            overflow-x: hidden;
-            /* Cho phép cuộn dọc khi cần */
-            overflow-y: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
+            overflow-x: hidden
         }
 
-        /* Particles.js container phủ toàn màn hình */
         #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            position: fixed;
+            inset: 0;
+            z-index: -1
         }
 
-        .table-container {
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 15px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            max-width: 700px;
-            width: 100%;
-            z-index: 1;
+        .section {
+            background: rgba(0, 0, 0, .85);
             margin: 40px auto;
-            position: relative;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .6)
         }
 
-        .table-container h2 {
+        h2 {
             text-align: center;
-            margin-bottom: 20px;
             font-size: 2em;
+            margin-bottom: 20px
         }
 
+        /* Tag thời gian */
+        .tag {
+            background: #EE1D52;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: .75em;
+            margin-left: 8px;
+            white-space: nowrap
+        }
+
+        /* Bảng dịch vụ */
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: collapse
         }
 
         th,
         td {
             padding: 15px;
-            text-align: left;
             border-bottom: 1px solid #333;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
+            font-weight: 600
         }
 
         th {
-            background: #EE1D52;
-            font-size: 1.2em;
-        }
-
-        tr {
-            transition: background 0.3s ease, transform 0.3s ease;
+            background: #EE1D52
         }
 
         tr:hover {
-            cursor: pointer;
             background: #111;
             color: #EE1D52;
+            cursor: pointer
         }
 
         a {
             color: #69C9D0;
-            text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            text-decoration: none
         }
 
         a:hover {
-            text-decoration: underline;
+            color: #EE1D52
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 40px auto;
+            padding-left: 40px;
+            border-left: 3px solid #EE1D52
+        }
+
+        .step {
+            position: relative;
+            margin-bottom: 40px;
+            cursor: pointer
+        }
+
+        .circle {
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #EE1D52;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700
+        }
+
+        .content {
+            margin-left: 20px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, .05);
+            border-radius: 8px;
+            transition: .3s
+        }
+
+        .step.open .content {
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .content h3 {
+            font-size: 1.2em;
+            margin-bottom: 6px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .content p {
+            font-size: .95em;
+            color: #ccc
+        }
+
+        /* Booking details */
+        .booking-details {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin-top: 12px
+        }
+
+        .booking-details li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 6px 0;
+            border-bottom: 1px solid #222;
+            font-size: .9em
+        }
+
+        .booking-details li:last-child {
+            border-bottom: none
+        }
+
+        .booking-details i {
             color: #EE1D52;
+            margin-top: 4px
+        }
+
+        .step.open .booking-details {
+            display: block
         }
     </style>
 </head>
 
 <body>
-    <!-- Particles.js container -->
     <div id="particles-js"></div>
 
-    <div class="table-container">
+    <!-- Danh sách dịch vụ -->
+    <section class="section" id="services">
         <h2>Danh sách Dịch vụ</h2>
         <table>
             <thead>
@@ -119,12 +188,12 @@
                     <th>Giá (VAT)</th>
                     <th>Liên kết</th>
                 </tr>
-            </thead>    
+            </thead>
             <tbody>
                 <tr>
                     <td>1</td>
                     <td>Vận hành + Video</td>
-                    <td>32.400.000đ</td>
+                    <td>37.800.000đ</td>
                     <td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td>
                 </tr>
                 <tr>
@@ -151,87 +220,103 @@
                     <td>20.520.000đ</td>
                     <td><a href="./services/booking.html" target="_blank">Truy cập</a></td>
                 </tr>
-                </tr>
                 <tr>
                     <td>6</td>
-                    <td><del>Vận hành Shopee</del>(đang lên thiết kế)</td>
+                    <td><del>Vận hành Shopee</del> (đang thiết kế)</td>
                     <td><del>25.000.000đ</del></td>
                     <td><a href="./services/video_vh_shopee.html" target="_blank">Truy cập</a></td>
                 </tr>
             </tbody>
         </table>
-    </div>
+    </section>
 
-    <!-- Thêm particles.js từ CDN -->
+    <!-- Quy trình triển khai -->
+    <section class="section">
+        <h2>Quy trình triển khai</h2>
+        <div class="timeline">
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="circle">1</div>
+                <div class="content">
+                    <h3>Tư vấn & chốt giải pháp</h3>
+                    <p>Phân tích nhu cầu, ngành hàng và đưa ra gói phù hợp giữa vận hành & booking.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="content">
+                    <h3>Ký kết hợp đồng</h3>
+                    <p>Chốt chi phí, timeline và điều khoản.</p>
+                </div>
+            </div>
+            <!-- Step 3 - Booking -->
+            <div class="step" id="booking-step">
+                <div class="circle">3</div>
+                <div class="content">
+                    <h3>Triển khai booking KOC <span class="tag">30 ngày</span></h3>
+                    <p>Tìm kiếm - đánh giá - chốt danh sách KOC, xây kịch bản và hỗ trợ duyệt video.</p>
+                    <ul class="booking-details">
+                        <li><i class="fa-solid fa-flag"></i><span>Số lượng KOC liên hệ hợp tác lên
+                                bài</span><span>80</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Số follow KOC trung bình trong gói</span><span>2N -
+                                500N Followers</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Số lượng KOC tìm kiếm</span><span>200</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Tư vấn chiến lược & chốt phương án tìm KOC</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Phân tích kênh KOC</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Xây dựng Brief booking KOC</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Bảng tiêu chuẩn video chuyển đổi</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Kiểm duyệt kịch bản, video ngắn</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Thời gian cung cấp danh sách</span><span>2 - 4
+                                ngày</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Nghiệm thu nội dung video, mã code</span></li>
+                        <li><i class="fa-solid fa-flag"></i><span>Viết kịch bản video chuyển đổi <em>(nếu
+                                    cần)</em></span></li>
+                        <li><i class="fa-solid fa-flag"></i><span><strong>Chưa bao gồm</strong>: Phí booking review, sử
+                                dụng hình ảnh KOC, sản phẩm mẫu</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Step 4 - Operation -->
+            <div class="step" id="operation-step">
+                <div class="circle">4</div>
+                <div class="content">
+                    <h3>Triển khai vận hành <span class="tag">30 ngày</span></h3>
+                    <p>Phân tích KP, lên kế hoạch tăng trưởng, tối ưu sản phẩm và quảng cáo chuyển đổi.</p>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <!-- <div class="step">
+                <div class="circle">5</div>
+                <div class="content">
+                    <h3>Báo cáo tiến độ</h3>
+                    <p>Báo cáo hàng tuần, đề xuất cải tiến.</p>
+                </div>
+            </div> -->
+            <!-- Step 6 -->
+            <!-- <div class="step">
+                <div class="circle">6</div>
+                <div class="content">
+                    <h3>Đánh giá & tối ưu</h3>
+                    <p>Phân tích hiệu quả tổng thể và tối ưu ngân sách cho các giai đoạn tiếp theo.</p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script>
+        // Particles
         particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false
-                },
-                "size": {
-                    "value": 3,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 4,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    }
-                },
-                "modes": {
-                    "repulse": {
-                        "distance": 100,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
-                }
-            },
-            "retina_detect": true
+            particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#fff" }, shape: { type: "circle" }, opacity: { value: .5 }, size: { value: 3, random: true }, line_linked: { enable: true, distance: 150, color: "#fff", opacity: .4, width: 1 }, move: { enable: true, speed: 4, out_mode: "out" } },
+            interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: .4 }, push: { particles_nb: 4 } } },
+            retina_detect: true
+        });
+
+        // Toggle booking details on click
+        document.getElementById('booking-step').addEventListener('click', function (e) {
+            this.classList.toggle('open');
         });
     </script>
 </body>
