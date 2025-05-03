@@ -1,419 +1,78 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BÁO GIÁ VẬN HÀNH &amp; BOOKING TikTok</title>
-  <!-- Google Fonts -->
+  <title>BÁO GIÁ BOOKING & VẬN HÀNH TikTok</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
-
   <style>
-    /* Cài đặt chung */
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(90deg, #69C9D0, #EE1D52);
-      margin: 0;
-      padding: 20px;
-      color: #fff;
-    }
-
-    .main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-      position: relative;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    /* Card style */
-    .card-custom {
-      position: relative;
-      background: rgba(0, 0, 0, 0.8);
-      border: 1px solid #333;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
-    }
-
-    .card-custom .card-header {
-      background: #111;
-      padding: 15px;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: 0.5px;
-      color: #fff;
-      border-bottom: 2px solid #EE1D52;
-    }
-
-    .card-custom .card-body {
-      padding: 20px 25px;
-      font-size: 1rem;
-      color: #fff;
-    }
-
-    .section-head {
-      background: #222;
-      color: #69C9D0;
-      padding: 10px 15px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      border-left: 4px solid #EE1D52;
-      border-radius: 4px;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-    }
-
-    /* Mục cha */
-    .item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 10px;
-      border-bottom: 1px dashed #333;
-      padding-bottom: 8px;
-    }
-
-    /* Loại bỏ border ở mục cuối cùng của mỗi cột */
-    .col-md-6 .item:last-child {
-      border-bottom: none;
-    }
-
-    .item a {
-      color: #EE1D52;
-      margin-right: 10px;
-      font-size: 1.1rem;
-      margin-top: 2px;
-    }
-
-    .item > div {
-      flex: 1;
-    }
-
-    .item > div > span {
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    .item i.fa-check {
-      color: #69C9D0;
-      margin-left: 10px;
-      margin-top: 2px;
-    }
-
-    /* Mục con: in nghiêng, nhỏ hơn */
-    .sub-item {
-      font-size: 0.85rem;
-      color: #ccc;
-      line-height: 1.3;
-      margin-bottom: 5px;
-      font-style: italic;
-      margin-left: 25px;
-    }
-
-    /* Price Corner */
-    .price-corner {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 10px 15px;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      text-align: right;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
-    }
-
-    .price-corner .old-price {
-      text-decoration: line-through;
-      color: #aaa;
-      font-size: 1rem;
-      display: block;
-    }
-
-    .price-corner .new-price {
-      font-weight: bold;
-      color: #EE1D52;
-      font-size: 1.5rem;
-      display: block;
-    }
-
-    .crown {
-      color: #EE1D52;
-      margin-left: 8px;
-      font-size: 1.2em;
-    }
-
-    /* Media queries cải tiến cho desktop và máy tính bảng */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .card-custom .card-header {
-        font-size: 1.2rem;
-        padding: 10px;
-      }
-
-      .card-custom .card-body {
-        padding: 15px 20px;
-      }
-
-      .price-corner {
-        top: 10px;
-        right: 10px;
-        padding: 8px 12px;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Media query cho điện thoại: di chuyển price-corner xuống dưới nội dung */
-    @media (max-width: 576px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .main {
-        padding: 0 !important;
-      }
-
-      .item,
-      .sub-item {
-        font-size: 0.8rem;
-      }
-
-      .section-head {
-        font-size: 1rem;
-        padding: 8px 12px;
-      }
-      
-      .price-corner {
-        position: static;
-        margin-top: 15px;
-        padding: 8px 12px;
-        font-size: 0.8rem;
-        border: 2px solid #fff;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
-      }
-      
-      /* Sử dụng flex để thay đổi thứ tự hiển thị của các thành phần trong card */
-      .card-custom {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .card-custom .card-header {
-        order: 0;
-      }
-      
-      .card-custom .card-body {
-        order: 1;
-      }
-      
-      .card-custom .price-corner {
-        order: 2;
-        text-align: center;
-      }
-    }
+    :root{--cyan:#69C9D0;--pink:#EE1D52;--dark:#0d0d0d;--card:#1a1a1a}
+    *,*:before,*:after{box-sizing:border-box}
+    body{margin:0;font-family:'Quicksand',sans-serif;background:#0d0d0d;
+      color:#fff;padding:20px}
+    h1{text-align:center;font-size:2.2rem;font-weight:700;margin:0 0 30px}
+    .card{position:relative;background:rgba(0,0,0,.85);border:1px solid #333;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.75);max-width:800px;margin:0 auto}
+    .card-header{background:#111;border-top-left-radius:14px;border-top-right-radius:14px;padding:18px;text-align:center;font-size:1.4rem;font-weight:700;border-bottom:2px solid var(--pink)}
+    .price{position:absolute;top:18px;right:18px;background:#000;padding:10px 14px;border-radius:10px;border:2px solid #fff;text-align:right;box-shadow:0 6px 14px rgba(0,0,0,.8)}
+    .price .old{font-size:1rem;color:#aaa;text-decoration:line-through;display:block}
+    .price .new{font-size:1.5rem;font-weight:700;color:var(--pink);display:block}
+    .section{padding:22px 26px;border-bottom:none}
+    .section:last-child{border-bottom:none;padding-bottom:30px}
+    .section-title{background:#222;color:var(--cyan);font-weight:700;padding:10px 14px;border-left:4px solid var(--pink);border-radius:4px;margin-bottom:18px;font-size:1.05rem;text-transform:uppercase;display:inline-block}
+    .section-title.gift{background:#222;color:#ffc107}
+    .badge-val{background:var(--pink);color:#fff;font-size:.8rem;font-weight:700;padding:4px 10px;border-radius:10px;margin-left:8px}
+    .item{display:flex;gap:10px;margin-bottom:10px;border-bottom:1px dashed #666;padding-bottom:8px}
+    .item i{color:var(--pink);min-width:18px;margin-top:2px}
+    .item span{line-height:1.45;}
+    .item.no-border{border-bottom:none;padding-bottom:4px;margin-bottom:4px}
+    .sub{font-size:.85rem;color:#ccc;font-style:italic;display:block;width:100%;border-bottom:1px dashed #666;padding-bottom:6px;margin:0}
+    .value{margin-left:auto;font-weight:700}
+    @media(max-width:600px){h1{font-size:1.8rem}.card{width:100%}.card-header{font-size:1.2rem;padding:14px}.price{position:static;margin:10px auto 0;text-align:center}}
+  .strike{text-decoration:line-through}
+  body:before{content:'';position:fixed;inset:0;border:4px solid transparent;background:linear-gradient(45deg,#69C9D0,#EE1D52) border-box;mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);}  
   </style>
 </head>
-
 <body>
-  <div class="main" id="content">
-    <h1>BÁO GIÁ VẬN HÀNH &amp; BOOKING TIKTOK</h1>
+  <h1>BÁO GIÁ BOOKING & VẬN HÀNH TIKTOK</h1>
 
-    <div class="card card-custom">
-      <div class="card-header">
-        HẠNG MỤC CÔNG VIỆC VẬN HÀNH &amp; BOOKING <i class="fas fa-crown crown"></i>
-      </div>
+  <div class="card">
+    <div class="card-header">HẠNG MỤC BOOKING KOC/KOL<i class="fas fa-crown" style="color:var(--pink);margin-left:8px"></i></div>
+    <div class="price"><span class="old">35.840.000đ</span><span class="new">29.160.000đ</span></div>
 
-      <!-- Price Corner -->
-      <div class="price-corner">
-        <span class="old-price">35.840.000đ</span>
-        <span class="new-price">29.160.000đ</span>
-      </div>
+    <!-- BOOKING SECTION -->
+    <div class="section">
+      <div class="section-title">BOOKING KOC/KOL</div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Số lượng KOC liên hệ hợp tác lên bài</span><span class="value">80</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Số follow KOC trung bình trong gói</span><span class="value">2N – 500N</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Số lượng KOC tìm kiếm</span><span class="value">200</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Tư vấn chiến lược Booking KOC và chốt phương án tìm KOC</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Phân tích kênh KOC</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Xây dựng Brief booking KOC</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Hỗ trợ làm bảng tiêu chuẩn video chuyển đổi cho KOC</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Hỗ trợ kiểm duyệt kịch bản, video ngắn KOC</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Thời gian cung cấp danh sách</span><span class="value">2 – 4 ngày</span></div>
+      <div class="item"><i class="fa-solid fa-bookmark"></i><span>Hỗ trợ nghiệm thu nội dung video, mã code</span></div>
+      <div class="item no-border"><i class="fa-solid fa-bookmark"></i><span>Hỗ trợ viết kịch bản video ngắn chuyển đổi cho KOC</span></div>
+      <span class="sub">Áp dụng với KOC cần trợ giúp</span>
+      <div class="item no-border"><i class="fa-solid fa-bookmark"></i><span>Chưa bao gồm</span></div>
+      <span class="sub">Phí booking video review<br>Phí sử dụng hình ảnh KOC<br>Sản phẩm mẫu</span>
+    </div>
 
-      <div class="card-body">
-        <div class="row align-items-stretch">
-          <!-- Cột bên trái: Vận hành -->
-          <div class="col-md-6">
-            <div class="section-head">vận hành</div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Phân tích KPI: GMV, ROI, tỷ lệ chuyển đổi, tỷ lệ hoàn hủy</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Báo cáo hiệu suất định kỳ (tuần/tháng) với biểu đồ và đề xuất cải thiện</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Lập kế hoạch tăng trưởng theo từng giai đoạn (ngắn hạn, dài hạn)</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Tối ưu danh mục sản phẩm chuẩn SEO: Tiêu đề, hình ảnh, nội dung</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Phân tích tỷ lệ chuyển đổi và đề xuất cải tiến cho từng sản phẩm</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Lên ý tưởng và triển khai CTKM định kỳ phù hợp với chiến lược của TikTok</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Nghiên cứu xu hướng và tối ưu hóa chương trình ưu đãi để thu hút KH mới</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Theo dõi và đánh giá hiệu quả từng KOC/KOL qua KPI/s</span>
-                <div class="sub-item">Tỷ lệ chuyển đổi</div>
-                <div class="sub-item">Lượt xem</div>
-                <div class="sub-item">Tương tác</div>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Chạy quảng cáo phân lớp</span>
-                <div class="sub-item">Quảng cáo chuyển đổi</div>
-                <div class="sub-item">Quảng cáo GMV</div>
-                <div class="sub-item">Quảng cáo livestream và retargeting</div>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Phân tích và tối ưu quảng cáo hàng ngày</span>
-                <div class="sub-item">Điều chỉnh ngân sách</div>
-                <div class="sub-item">Tối ưu nội dung và đối tượng mục tiêu</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cột bên phải: Booking -->
-          <div class="col-md-6">
-            <div class="section-head">booking koc/kol</div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Số lượng KOC liên hệ hợp tác lên bài</span>
-              </div>
-              <span class="font-weight-bolder">80</span>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Số follow KOC trung bình trong gói</span>
-              </div>
-              <span class="font-weight-bolder">2N - 500N Followers</span>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Số lượng KOC tìm kiếm</span>
-              </div>
-              <span class="font-weight-bolder">200</span>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Tư vấn chiến lược Booking KOC và chốt phương án tìm KOC</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Phân tích kênh KOC</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Xây dựng Brief booking KOC</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Hỗ trợ làm bảng tiêu chuẩn video chuyển đổi cho KOC</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Hỗ trợ kiểm duyệt kịch bản, video ngắn KOC</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Thời gian cung cấp danh sách</span>
-              </div>
-              <span class="font-weight-bolder">2 - 4 ngày</span>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Hỗ trợ nghiệm thu nội dung video, mã code</span>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Hỗ trợ viết kịch bản video ngắn chuyển đổi cho KOC</span>
-                <div class="sub-item">Với KOC nào cần hỗ trợ viết</div>
-              </div>
-            </div>
-            <div class="item">
-              <a href="#"><i class="fa-solid fa-bookmark"></i></a>
-              <div>
-                <span>Chưa bao gồm</span>
-                <div class="sub-item">Phí booking KOC để làm video review sản phẩm</div>
-                <div class="sub-item">Phí sử dụng hình ảnh của KOC</div>
-                <div class="sub-item">Phí sản phẩm mẫu gửi KOC ( nếu có )</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- VẬN HÀNH SECTION -->
+    <div class="section">
+      <div class="section-title gift">🎁 TẶNG KÈM: VẬN HÀNH <span class="badge-val">TRỊ GIÁ&nbsp;<span class="strike">12.000.000đ</span></span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Phân tích KPI: GMV, ROI, tỷ lệ chuyển đổi, tỷ lệ hoàn hủy</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Báo cáo hiệu suất định kỳ kèm biểu đồ & đề xuất cải thiện</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Lập kế hoạch tăng trưởng (ngắn & dài hạn)</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Tối ưu danh mục sản phẩm chuẩn SEO</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Phân tích tỷ lệ chuyển đổi & đề xuất cải tiến</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Triển khai CTKM định kỳ phù hợp chiến lược TikTok</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Nghiên cứu xu hướng & tối ưu ưu đãi thu hút khách mới</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Theo dõi & đánh giá hiệu quả KOC/KOL qua KPI (CVR, view, engagement)</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Chạy quảng cáo phân lớp (chuyển đổi, GMV, livestream & retargeting)</span></div>
+      <div class="item"><i class="fa-solid fa-gift"></i><span>Phân tích & tối ưu ads hàng ngày (ngân sách, nội dung, tệp mục tiêu)</span></div>
     </div>
   </div>
-
-  <!-- Các script cần thiết -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triển khai Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root{
+      --pink:#EE1D52;
+      --cyan:#69C9D0;
+      --dark:#0d0d0d;
+      --glass:rgba(255,255,255,0.07);
+    }
+    *,*:before,*:after{box-sizing:border-box}
+    body{margin:0;font-family:'Quicksand',sans-serif;background:var(--dark);color:#fdfdfd;overflow-x:hidden}
+
+    /* HERO */
+    .hero{position:relative;text-align:center;padding:90px 20px;background:var(--dark);}
+    .hero h1{position:relative;z-index:1;margin:0 0 14px;font-weight:600;font-size:3.2rem;color:var(--pink)}
+    .hero p{position:relative;z-index:1;margin:0;font-weight:300;font-size:1rem;color:#bdbdbd}
+
+    /* WRAPPER */
+    .wrapper{max-width:1000px;margin:-60px auto 70px;padding:0 20px}
+
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:50px}
+    .timeline:before{content:"";position:absolute;left:23px;top:0;bottom:0;width:4px;background:linear-gradient(var(--cyan),var(--pink));border-radius:2px}
+
+    .card{position:relative;margin-bottom:50px;padding:28px 28px 28px 45px;background:var(--glass);backdrop-filter:blur(10px) saturate(140%);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 6px 16px rgba(0,0,0,.45);transition:transform .3s ease}
+    .card:hover{transform:translateY(-4px)}
+    .card:last-child{margin-bottom:0}
+
+    .card:before{content:"";position:absolute;left:-31px;top:25px;width:20px;height:20px;border-radius:50%;background:var(--dark);border:4px solid var(--pink)}
+
+    .step-badge{position:absolute;left:-72px;top:14px;width:45px;height:45px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1.05rem;color:#fff;box-shadow:0 0 0 5px rgba(238,29,82,.35)}
+
+    .card h3{margin:0 0 7px;font-weight:600;font-size:1.4rem;color:var(--cyan);display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
+
+    .duration{background:var(--pink);color:#fff;font-size:0.75rem;font-weight:600;padding:3px 10px;border-radius:12px;white-space:nowrap;margin-left:12px}
+
+    .card p{margin:0;font-size:.95rem;line-height:1.55;color:#eaeaea}
+
+    @media(max-width:720px){
+      .hero h1{font-size:2.4rem}
+      .timeline{padding-left:38px}
+      .step-badge{left:-60px}
+      .card{padding:24px 24px 24px 40px}
+      .duration{font-size:0.7rem}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>QUY TRÌNH TRIỂN KHAI</h1>
+  </section>
+
+  <section class="wrapper">
+    <div class="timeline">
+      <div class="card"><span class="step-badge">1</span><h3><i class="fa-solid fa-comments"></i>Khảo sát &amp; Tư vấn mục tiêu</h3><p>Phân tích ngành hàng, hoạch định ngân sách tối ưu.</p></div>
+      <div class="card"><span class="step-badge">2</span><h3><i class="fa-solid fa-file-signature"></i>Ký hợp đồng</h3><p>Chốt phạm vi công việc, điều khoản bảo mật rõ ràng.</p></div>
+      <div class="card"><span class="step-badge">3</span><h3><i class="fa-solid fa-pen-ruler"></i>Chuẩn bị nội dung &amp; Kịch bản <span class="duration">7 ngày</span></h3><p>Xây dựng Brief, kiểm duyệt kịch bản chi tiết trước khi quay.</p></div>
+      <div class="card"><span class="step-badge">4</span><h3><i class="fa-solid fa-video"></i>Quay &amp; Dựng Media <span class="duration">20 ngày</span></h3><p>Sản xuất 20 video mới và remake 10 video; hậu kỳ chỉnh màu, âm thanh chuyên nghiệp.</p></div>
+      <div class="card"><span class="step-badge">5</span><h3><i class="fa-solid fa-upload"></i>Đăng tải &amp; Tối ưu nội dung</h3><p>Lên lịch phát hành, tối ưu SEO TikTok (caption, hashtag, thumbnail).</p></div>
+      <div class="card"><span class="step-badge">6</span><h3><i class="fa-solid fa-bullhorn"></i>Vận Hành &amp; Cải Tiến <span class="duration">30 ngày</span></h3><p>Vận hành quảng cáo (GMV Max, retargeting), cập nhật KPI realtime, báo cáo định kỳ và cải tiến liên tục.</p></div>
+    </div>
+  </section>
+</body>
+</html>
