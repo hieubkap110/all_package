@@ -61,6 +61,10 @@
             border-collapse: collapse
         }
 
+        tr {
+            height: 65px;
+        }
+
         th,
         td {
             padding: 15px;
@@ -69,10 +73,16 @@
         }
 
         th {
+            text-align: left;
             background: #EE1D52
         }
 
-        tr:hover {
+        th:last-child,
+        td:last-child {
+            text-align: center;
+        }
+
+        tbody tr:hover {
             background: #111;
             color: #EE1D52;
             cursor: pointer
@@ -187,6 +197,7 @@
                     <th>Tên Dịch Vụ</th>
                     <th>Giá (VAT)</th>
                     <th>Liên kết</th>
+                    <th>Quy trình</th>
                 </tr>
             </thead>
             <tbody>
@@ -195,37 +206,50 @@
                     <td>Vận hành + Video</td>
                     <td>37.800.000đ</td>
                     <td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td>
+                    <td><a href="./services/quy_trinh/media.html" target="_blank">Xem</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Vận hành + Booking</td>
                     <td>29.160.000đ</td>
                     <td><a href="./services/booking_vh.html" target="_blank">Truy cập</a></td>
+                    <td><a href="./services/quy_trinh/booking.html" target="_blank">Xem</a></td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Xây dựng gian hàng</td>
                     <td>12.740.000đ</td>
                     <td><a href="./services/xaydung_shop.html" target="_blank">Truy cập</a></td>
+                    <td>-</td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>Vận hành gian hàng</td>
+                    <td>Vận hành gian hàng <br><i><small>(Gói lẻ)</small></i></td>
                     <td>12.960.000đ</td>
                     <td><a href="./services/vanhanh.html" target="_blank">Truy cập</a></td>
+                    <td>-</td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td>Booking KOC</td>
-                    <td>20.520.000đ</td>
-                    <td><a href="./services/booking.html" target="_blank">Truy cập</a></td>
+                    <td>Vận hành gian hàng <br><i><small>(Gói combo 3 tháng)</small></i></td>
+                    <td>29.160.000đ</td>
+                    <td><a href="./services/vanhanh_combo.html" target="_blank">Truy cập</a></td>
+                    <td>-</td>
                 </tr>
+
                 <tr>
+                    <td>6</td>
+                    <td>Booking KOC <br><i><small>(Gói lẻ)</small></i></td>
+                    <td>29.160.000đ</td>
+                    <td><a href="./services/booking.html" target="_blank">Truy cập</a></td>
+                    <td>-</td>
+                </tr>
+                <!-- <tr>
                     <td>6</td>
                     <td><del>Vận hành Shopee</del> (đang thiết kế)</td>
                     <td><del>25.000.000đ</del></td>
                     <td><a href="./services/video_vh_shopee.html" target="_blank">Truy cập</a></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </section>
@@ -238,11 +262,6 @@
             particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#fff" }, shape: { type: "circle" }, opacity: { value: .5 }, size: { value: 3, random: true }, line_linked: { enable: true, distance: 150, color: "#fff", opacity: .4, width: 1 }, move: { enable: true, speed: 4, out_mode: "out" } },
             interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: .4 }, push: { particles_nb: 4 } } },
             retina_detect: true
-        });
-
-        // Toggle booking details on click
-        document.getElementById('booking-step').addEventListener('click', function (e) {
-            this.classList.toggle('open');
         });
     </script>
 </body>
