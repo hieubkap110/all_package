@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Báo Giá Booking Livestream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to right, #bae6f2, #f38ba0);
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            background: linear-gradient(135deg, #191919, #1f0f18);
+            border-radius: 16px;
+            color: #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #111;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #FE2C55;
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .price-tag {
+            background: #FE2C55;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 20px;
+            color: #fff;
+            box-shadow: 0 0 8px rgba(254, 44, 85, 0.5);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #ccc;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th,
+        td {
+            padding: 16px 24px;
+        }
+
+        tr {
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+        }
+
+        .section-title {
+            padding: 18px 24px;
+            background-color: #262626;
+            font-weight: 600;
+            color: #25F4EE;
+            border-left: 4px solid #FE2C55;
+            text-transform: uppercase;
+        }
+
+        .icon-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+        }
+
+        .icon-cell::before {
+            content: "📍";
+            font-size: 16px;
+        }
+
+        .footer-note {
+            padding: 0 24px 24px 24px;
+        }
+
+        .footer-note li {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 6px;
+            list-style: "⛔ ";
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="header-title">HẠNG MỤC BOOKING LIVESTREAM 👑</div>
+            <div class="price-tag">
+                <span class="old-price">35.040.000đ</span> 29.160.000đ
+            </div>
+        </div>
+
+        <div class="section-title">BOOKING LIVESTREAM</div>
+        <table>
+            <tr>
+                <td class="icon-cell">Số lượng KOC tham gia livestream</td>
+                <td>50 người</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Số follow trung bình</td>
+                <td>2.000 – 500.000 Followers</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Tổng KOC được tìm kiếm</td>
+                <td>120 – 150 để chọn lọc</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Tư vấn chiến lược livestream</td>
+                <td>Khung giờ, nội dung, CTA</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Phân tích chọn lọc KOC livestream</td>
+                <td>Theo khả năng giữ chân người xem</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Xây dựng brief livestream</td>
+                <td>Theo nhóm sản phẩm</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Hỗ trợ kịch bản nói & chốt đơn</td>
+                <td>Flow livestream tối ưu</td>
+            </tr>
+            <tr>
+                <td class="icon-cell">Thời gian cung cấp danh sách</td>
+                <td>1 – 2 tuần</td>
+            </tr>
+        </table>
+
+        <div class="section-title">CHƯA BAO GỒM</div>
+        <ul class="footer-note">
+            <li>Phí booking KOC livestream review</li>
+            <li>Phí sử dụng hình ảnh ngoài livestream</li>
+            <li>Phí sản phẩm mẫu gửi KOC (nếu có)</li>
+        </ul>
+    </div>
+</body>
+
+</html>

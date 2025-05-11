@@ -2,10 +2,10 @@
 <html lang="vi">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Educi - Dịch vụ TikTok Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
         *,
@@ -13,68 +13,54 @@
         *::after {
             box-sizing: border-box;
             margin: 0;
-            padding: 0
+            padding: 0;
         }
 
         body {
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(90deg, #69C9D0, #EE1D52);
-            color: #fff;
-            overflow-x: hidden
-        }
-
-        #particles-js {
-            position: fixed;
-            inset: 0;
-            z-index: -1
+            background: linear-gradient(135deg, #e0f7ff, #a0d8ff);
+            color: #333;
+            overflow-x: hidden;
         }
 
         .section {
-            background: rgba(0, 0, 0, .85);
+            background: #fff;
             margin: 40px auto;
             padding: 30px;
             border-radius: 15px;
-            max-width: 800px;
-            width: 90%;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, .6)
+            max-width: 1200px;
+            width: 95%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Light background for Case Study to make cards pop */
+        #case-studies.section {
+            background: #f0f4f8;
         }
 
         h2 {
             text-align: center;
             font-size: 2em;
-            margin-bottom: 20px
+            margin-bottom: 20px;
+            color: #0077cc;
         }
 
-        /* Tag thời gian */
-        .tag {
-            background: #EE1D52;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: .75em;
-            margin-left: 8px;
-            white-space: nowrap
-        }
-
-        /* Bảng dịch vụ */
         table {
             width: 100%;
-            border-collapse: collapse
-        }
-
-        tr {
-            height: 65px;
+            border-collapse: collapse;
         }
 
         th,
         td {
             padding: 15px;
-            border-bottom: 1px solid #333;
-            font-weight: 600
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
         }
 
         th {
             text-align: left;
-            background: #EE1D52
+            background: #d0ecff;
+            color: #005fa3;
         }
 
         th:last-child,
@@ -83,186 +69,237 @@
         }
 
         tbody tr:hover {
-            background: #111;
-            color: #EE1D52;
-            cursor: pointer
+            background: #eef9ff;
+            cursor: pointer;
         }
 
         a {
-            color: #69C9D0;
-            font-weight: 600;
-            text-decoration: none
+            color: #0077cc;
+            text-decoration: none;
         }
 
         a:hover {
-            color: #EE1D52
+            color: #005fa3;
         }
 
-        /* Timeline */
-        .timeline {
+        /* Cards grid */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
             position: relative;
-            margin: 40px auto;
-            padding-left: 40px;
-            border-left: 3px solid #EE1D52
-        }
-
-        .step {
-            position: relative;
-            margin-bottom: 40px;
-            cursor: pointer
-        }
-
-        .circle {
-            position: absolute;
-            left: -24px;
-            top: 0;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #EE1D52;
+            background: #fff;
+            /* removed border */
+            border-radius: 12px;
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .content {
-            margin-left: 20px;
-            padding: 12px 18px;
-            background: rgba(255, 255, 255, .05);
-            border-radius: 8px;
-            transition: .3s
+        .card img {
+            width: 100%;
+            object-fit: cover;
+            height: 200px;
         }
 
-        .step.open .content {
-            background: rgba(255, 255, 255, .1)
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .content h3 {
+        .card-title {
             font-size: 1.2em;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #005fa3;
+        }
+
+        .card-desc {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .card-footer a {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #0077cc;
             color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 6px
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: background 0.2s ease;
         }
 
-        .content p {
-            font-size: .95em;
-            color: #ccc
+        .card-footer a:hover {
+            background: #005fa3;
         }
 
-        /* Booking details */
-        .booking-details {
-            display: none;
-            list-style: none;
-            padding: 0;
-            margin-top: 12px
+        /* Hover shadow and cursor */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 95, 163, 0.25), 0 6px 16px rgba(0, 119, 204, 0.2);
+            cursor: pointer;
         }
 
-        .booking-details li {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            padding: 6px 0;
-            border-bottom: 1px solid #222;
-            font-size: .9em
+        .tag {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+            display: inline-block;
+            color: #fff;
         }
 
-        .booking-details li:last-child {
-            border-bottom: none
+        .tag-priority {
+            background: #FE2C55;
         }
 
-        .booking-details i {
-            color: #EE1D52;
-            margin-top: 4px
-        }
-
-        .step.open .booking-details {
-            display: block
+        .tag-new {
+            background: #2ecc71;
         }
     </style>
 </head>
 
 <body>
-    <div id="particles-js"></div>
+    <div class="main-content">
+        <section class="section" id="services">
+            <h2>Danh sách Dịch vụ</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tên Dịch Vụ</th>
+                        <th>Giá (VAT)</th>
+                        <th>Liên kết</th>
+                        <th>Quy trình</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Vận hành + Video</td>
+                        <td>37.800.000đ</td>
+                        <td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td>
+                        <td><a href="./services/quy_trinh/media.html" target="_blank">Xem</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Vận hành + Booking <span class="tag tag-priority">Ưu tiên</span></td>
+                        <td>29.160.000đ</td>
+                        <td><a href="./services/booking_vh.html" target="_blank">Truy cập</a></td>
+                        <td><a href="./services/quy_trinh/booking.html" target="_blank">Xem</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Xây dựng gian hàng</td>
+                        <td>12.740.000đ</td>
+                        <td><a href="./services/xaydung_shop.html" target="_blank">Truy cập</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Vận hành gian hàng (Gói lẻ)</td>
+                        <td>12.960.000đ</td>
+                        <td><a href="./services/vanhanh.html" target="_blank">Truy cập</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Vận hành gian hàng (Combo 3 tháng)</td>
+                        <td>29.160.000đ</td>
+                        <td><a href="./services/vanhanh_combo.html" target="_blank">Truy cập</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Booking KOC (Gói lẻ)</td>
+                        <td>29.160.000đ</td>
+                        <td><a href="./services/booking.html" target="_blank">Truy cập</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Booking Livestream <span class="tag tag-new">Mới</span></td>
+                        <td>29.160.000đ</td>
+                        <td><a href="#" target="_blank"><del>Truy cập</del></a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Vận hành không thu phí cứng <span class="tag tag-new">Mới</span></td>
+                        <td>5% doanh thu/tháng</td>
+                        <td><a href="./services/vh_free.html" target="_blank">Truy cập</a></td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-    <!-- Danh sách dịch vụ -->
-    <section class="section" id="services">
-        <h2>Danh sách Dịch vụ</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Tên Dịch Vụ</th>
-                    <th>Giá (VAT)</th>
-                    <th>Liên kết</th>
-                    <th>Quy trình</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Vận hành + Video</td>
-                    <td>37.800.000đ</td>
-                    <td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td>
-                    <td><a href="./services/quy_trinh/media.html" target="_blank">Xem</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Vận hành + Booking</td>
-                    <td>29.160.000đ</td>
-                    <td><a href="./services/booking_vh.html" target="_blank">Truy cập</a></td>
-                    <td><a href="./services/quy_trinh/booking.html" target="_blank">Xem</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Xây dựng gian hàng</td>
-                    <td>12.740.000đ</td>
-                    <td><a href="./services/xaydung_shop.html" target="_blank">Truy cập</a></td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Vận hành gian hàng <br><i><small>(Gói lẻ)</small></i></td>
-                    <td>12.960.000đ</td>
-                    <td><a href="./services/vanhanh.html" target="_blank">Truy cập</a></td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Vận hành gian hàng <br><i><small>(Gói combo 3 tháng)</small></i></td>
-                    <td>29.160.000đ</td>
-                    <td><a href="./services/vanhanh_combo.html" target="_blank">Truy cập</a></td>
-                    <td>-</td>
-                </tr>
+        <section class="section" id="case-studies">
+            <h2>Case Study</h2>
+            <div class="cards-container" id="cards-container"></div>
+        </section>
+    </div>
 
-                <tr>
-                    <td>6</td>
-                    <td>Booking KOC <br><i><small>(Gói lẻ)</small></i></td>
-                    <td>29.160.000đ</td>
-                    <td><a href="./services/booking.html" target="_blank">Truy cập</a></td>
-                    <td>-</td>
-                </tr>
-                <!-- <tr>
-                    <td>6</td>
-                    <td><del>Vận hành Shopee</del> (đang thiết kế)</td>
-                    <td><del>25.000.000đ</del></td>
-                    <td><a href="./services/video_vh_shopee.html" target="_blank">Truy cập</a></td>
-                </tr> -->
-            </tbody>
-        </table>
-    </section>
-
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script>
-        // Particles
-        particlesJS("particles-js", {
-            particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#fff" }, shape: { type: "circle" }, opacity: { value: .5 }, size: { value: 3, random: true }, line_linked: { enable: true, distance: 150, color: "#fff", opacity: .4, width: 1 }, move: { enable: true, speed: 4, out_mode: "out" } },
-            interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: .4 }, push: { particles_nb: 4 } } },
-            retina_detect: true
-        });
+        const caseStudies = [
+            {
+                id: 1,
+                title: "CASE STUDY: KANTA STORE",
+                desc: "Vận hành Shop nội thất Kanta Store từ 800 TRIỆU TRONG 3 THÁNG đạt doanh thu 2 tỷ/tháng",
+                thumb: "./images/case_2.png",
+                edit: "https://www.canva.com/design/DAGeCFV3Hmg/4KSo_WgfJ63IvVesUrGp5A/edit"
+            },
+            {
+                id: 2,
+                title: "CASE STUDY: ĐÈN LIVESTREAM",
+                desc: "Coaching xây dựng SHOP đèn live TỪ CON SỐ 0 SAU 3 THÁNG đạt doanh thu 1 tỷ/tháng",
+                thumb: "./images/case_1.png",
+                edit: "https://www.canva.com/design/DAGeM9xdJgc/VSO-R-gtPRQmEbsTYoF-Tg/edit"
+            },
+            {
+                id: 3,
+                title: "CASE STUDY: CỐC GIỮ NHIỆT",
+                desc: "Coaching xây dựng SHOP cốc giữ nhiệt TỪ CON SỐ 0 SAU 4 THÁNG đạt doanh thu 1 tỷ",
+                thumb: "./images/case_3.png",
+                edit: "https://www.canva.com/design/DAGeM9xdJgc/VSO-R-gtPRQmEbsTYoF-Tg/edit"
+            }
+        ];
+
+        function renderCards(list) {
+            const c = document.getElementById("cards-container");
+            [...list].reverse().forEach(i => {
+                const d = document.createElement("div");
+                d.className = "card";
+                d.innerHTML = `
+                    <img src="${i.thumb}" alt="${i.title}" />
+                    <div class="card-content">
+                        <div>
+                            <div class="card-title">${i.title}</div>
+                            <div class="card-desc">${i.desc}</div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="${i.edit}" target="_blank">Xem</a>
+                        </div>
+                    </div>`;
+                c.appendChild(d);
+            });
+        }
+        document.addEventListener("DOMContentLoaded", () => renderCards(caseStudies));
     </script>
 </body>
 
