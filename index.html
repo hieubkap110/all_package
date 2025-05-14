@@ -1,429 +1,166 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Educi - Dịch vụ TikTok Shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #e0f7ff, #a0d8ff);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            height: 80px;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #0077cc;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #333;
-            transition: color 0.2s ease;
-        }
-
-        nav ul li a:hover {
-            color: #0077cc;
-        }
-
-        .section {
-            background: #fff;
-            margin: 40px auto;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 1200px;
-            width: 95%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        #case-studies.section {
-            background: #f0f4f8;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #0077cc;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-            font-weight: 600;
-        }
-
-        th {
-            text-align: left;
-            background: #d0ecff;
-            color: #005fa3;
-        }
-
-        th:last-child,
-        td:last-child {
-            text-align: center;
-        }
-
-        tbody tr:hover {
-            background: #eef9ff;
-            cursor: pointer;
-        }
-
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #005fa3;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            align-items: stretch;
-            grid-auto-rows: 1fr;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform .3s ease, box-shadow .3s ease;
-            height: 100%;
-        }
-
-        .card img {
-            width: 100%;
-            object-fit: cover;
-            height: 200px;
-        }
-
-        .card-content {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-title {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            color: #005fa3;
-        }
-
-        .card-desc {
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 16px;
-            flex-grow: 1;
-        }
-
-        .card-footer a {
-            display: inline-block;
-            padding: 10px 16px;
-            background: #0077cc;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: .95em;
-            font-weight: 600;
-            transition: background .2s ease;
-        }
-
-        .card-footer a:hover {
-            background: #005fa3;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 95, 163, .25), 0 6px 16px rgba(0, 119, 204, .2);
-            cursor: pointer;
-        }
-
-        .tag {
-            font-size: 12px;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 12px;
-            margin-left: 8px;
-            vertical-align: middle;
-            display: inline-block;
-            color: #fff;
-        }
-
-        .tag-priority {
-            background: #FE2C55;
-        }
-
-        .tag-new {
-            background: #2ecc71;
-        }
-
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 60px 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .footer-col {
-            flex: 1 1 200px;
-        }
-
-        .footer-logo {
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .footer-tagline {
-            margin-bottom: 20px;
-            opacity: .8;
-        }
-
-        .footer-list {
-            list-style: none;
-        }
-
-        .footer-list li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .footer-list li i {
-            margin-right: 8px;
-            color: #fff;
-            font-size: 0.8em;
-            margin-top: 4px;
-        }
-
-        .footer-contact h3 {
-            margin-bottom: 10px;
-            font-size: 1em;
-            letter-spacing: .05em;
-        }
-
-        .footer-contact p,
-        .footer-contact a {
-            margin-bottom: 8px;
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            font-size: .95em;
-        }
-
-        .footer-contact .hotline-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            font-weight: 600;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            opacity: .6;
-            font-size: .85em;
-        }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Quicksand", sans-serif; background: linear-gradient(135deg, #e0f7ff, #a0d8ff); color: #333; overflow-x: hidden; }
+      header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+      nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; height: 80px; }
+      .logo { font-size: 1.5em; font-weight: 700; color: #0077cc; }
+      nav ul { list-style: none; display: flex; gap: 20px; }
+      nav ul li a { text-decoration: none; font-weight: 600; color: #333; transition: color 0.2s ease; }
+      nav ul li a:hover { color: #0077cc; }
+      .section { background: #fff; margin: 40px auto; padding: 30px; border-radius: 15px; max-width: 1200px; width: 95%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      h2 { text-align: center; font-size: 2em; margin-bottom: 20px; color: #0077cc; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { padding: 15px; border-bottom: 1px solid #ddd; font-weight: 600; }
+      th { text-align: left; background: #d0ecff; color: #005fa3; }
+      th:last-child, td:last-child { text-align: center; }
+      tbody tr:hover { background: #eef9ff; cursor: pointer; }
+      a { color: #0077cc; text-decoration: none; }
+      a:hover { color: #005fa3; }
+      .tag { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px; margin-left: 8px; vertical-align: middle; display: inline-block; color: #fff; }
+      .tag-priority { background: #fe2c55; }
+      .tag-new { background: #2ecc71; }
+      .cards-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 20px; margin-top: 20px; align-items: stretch; grid-auto-rows: 1fr; }
+      .card { background: #fff; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; }
+      .card img { width: 100%; object-fit: cover; height: 200px; }
+      .card-content { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+      .card-title { font-size: 1.2em; margin-bottom: 10px; font-weight: 700; color: #005fa3; }
+      .card-desc { font-size: 1em; color: #555; margin-bottom: 16px; flex-grow: 1; }
+      .card-footer a { display: inline-block; padding: 10px 16px; background: #0077cc; color: #fff; text-decoration: none; border-radius: 6px; font-size: 0.95em; font-weight: 600; transition: background 0.2s ease; }
+      .card-footer a:hover { background: #005fa3; }
+      .card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,95,163,0.25),0 6px 16px rgba(0,119,204,0.2); cursor: pointer; }
+      .pagination { display: flex; justify-content: center; margin: 20px 0; gap: 8px; }
+      .pagination button { border: none; background: #0077cc; color: #fff; padding: 8px 12px; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+      .pagination button.disabled { background: #ccc; cursor: not-allowed; }
+      .pagination button.active { background: #005fa3; }
+      footer { background: #000; color: #fff; padding: 60px 20px; }
+      .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; }
+      .footer-col { flex: 1 1 200px; }
+      .footer-logo { font-size: 2em; font-weight: 700; margin-bottom: 10px; }
+      .footer-tagline { margin-bottom: 20px; opacity: 0.8; }
+      .footer-list { list-style: none; }
+      .footer-list li { margin-bottom: 8px; display: flex; align-items: flex-start; }
+      .footer-list li i { margin-right: 8px; color: #fff; font-size: 0.8em; margin-top: 4px; }
+      .footer-contact h3 { margin-bottom: 10px; font-size: 1em; letter-spacing: 0.05em; }
+      .footer-contact p, .footer-contact a { margin-bottom: 8px; display: block; color: #fff; text-decoration: none; font-size: 0.95em; }
+      .footer-contact .hotline-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: rgba(255,255,255,0.1); border-radius: 6px; font-weight: 600; }
+      .footer-bottom { text-align: center; margin-top: 40px; opacity: 0.6; font-size: 0.85em; }
     </style>
-</head>
-
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">EDUCI</div>
-            <ul>
-                <li><a href="#services">Dịch vụ</a></li>
-                <li><a href="#case-studies">Case Study</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="logo">EDUCI</div>
+        <ul>
+          <li><a href="#services">Dịch vụ</a></li>
+          <li><a href="#case-studies">Case Study</a></li>
+        </ul>
+      </nav>
     </header>
-
     <div class="main-content">
-        <section class="section" id="services">
-            <h2>Danh sách Dịch vụ</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Tên Dịch Vụ</th>
-                        <th>Giá (VAT)</th>
-                        <th>Liên kết</th>
-                        <th>Quy trình</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Vận hành + Video</td>
-                        <td>37.800.000đ</td>
-                        <td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td>
-                        <td><a href="./services/quy_trinh/media.html" target="_blank">Xem</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Vận hành + Booking <span class="tag tag-priority">Ưu tiên</span></td>
-                        <td>29.160.000đ</td>
-                        <td><a href="./services/booking_vh.html" target="_blank">Truy cập</a></td>
-                        <td><a href="./services/quy_trinh/booking.html" target="_blank">Xem</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Xây dựng gian hàng</td>
-                        <td>12.740.000đ</td>
-                        <td><a href="./services/xaydung_shop.html" target="_blank">Truy cập</a></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Vận hành gian hàng (Gói lẻ)</td>
-                        <td>12.960.000đ</td>
-                        <td><a href="./services/vanhanh.html" target="_blank">Truy cập</a></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Vận hành gian hàng (Combo 3 tháng)</td>
-                        <td>29.160.000đ</td>
-                        <td><a href="./services/vanhanh_combo.html" target="_blank">Truy cập</a></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Booking KOC (Gói lẻ)</td>
-                        <td>29.160.000đ</td>
-                        <td><a href="./services/booking.html" target="_blank">Truy cập</a></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Booking Livestream <span class="tag tag-new">Mới</span></td>
-                        <td>29.160.000đ</td>
-                        <td><a href="#" target="_blank"><del>Truy cập</del></a></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Vận hành không thu phí cứng <span class="tag tag-new">Mới</span></td>
-                        <td>6% doanh thu/tháng</td>
-                        <td><a href="./services/vh_free.html" target="_blank">Truy cập</a></td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section class="section" id="case-studies">
-            <h2>Case Study</h2>
-            <div class="cards-container" id="cards-container"></div>
-        </section>
+      <section class="section" id="services">
+        <h2>Danh sách Dịch vụ</h2>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Tên Dịch Vụ</th><th>Giá (VAT)</th><th>Liên kết</th><th>Quy trình</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Vận hành + Video</td><td>37.800.000đ</td><td><a href="./services/video_vh.html" target="_blank">Truy cập</a></td><td><a href="./services/quy_trinh/media.html" target="_blank">Xem</a></td></tr>
+            <tr><td>2</td><td>Vận hành + Booking <span class="tag tag-priority">Ưu tiên</span></td><td>29.160.000đ</td><td><a href="./services/booking_vh.html" target="_blank">Truy cập</a></td><td><a href="./services/quy_trinh/booking.html" target="_blank">Xem</a></td></tr>
+            <tr><td>3</td><td>Xây dựng gian hàng</td><td>12.740.000đ</td><td><a href="./services/xaydung_shop.html" target="_blank">Truy cập</a></td><td>-</td></tr>
+            <tr><td>4</td><td>Vận hành gian hàng (Gói lẻ)</td><td>12.960.000đ</td><td><a href="./services/vanhanh.html" target="_blank">Truy cập</a></td><td>-</td></tr>
+            <tr><td>5</td><td>Vận hành gian hàng (Combo 3 tháng)</td><td>29.160.000đ</td><td><a href="./services/vanhanh_combo.html" target="_blank">Truy cập</a></td><td>-</td></tr>
+            <tr><td>6</td><td>Booking KOC (Gói lẻ)</td><td>29.160.000đ</td><td><a href="./services/booking.html" target="_blank">Truy cập</a></td><td>-</td></tr>
+            <tr><td>7</td><td>Booking Livestream <span class="tag tag-new">Mới</span></td><td>29.160.000đ</td><td><a href="#" target="_blank"><del>Truy cập</del></a></td><td>-</td></tr>
+            <tr><td>8</td><td>Vận hành không thu phí cứng <span class="tag tag-new">Mới</span></td><td>6% doanh thu/tháng</td><td><a href="./services/vh_free.html" target="_blank">Truy cập</a></td><td>-</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="section" id="case-studies">
+        <h2>Case Study</h2>
+        <div class="cards-container" id="cards-container"></div>
+        <div class="pagination" id="pagination"></div>
+      </section>
     </div>
-
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <div class="footer-logo">EDUCI</div>
-                <div class="footer-tagline">Trao giá trị, trọn niềm tin</div>
-            </div>
-            <div class="footer-col">
-                <ul class="footer-list">
-                    <li><i class="fas fa-angle-right"></i>Vận hành gian hàng TikTok Shop không thu phí</li>
-                    <li><i class="fas fa-angle-right"></i>Vận hành gian hàng TMĐT có thu phí cố định</li>
-                    <li><i class="fas fa-angle-right"></i>Triển khai toàn diện cho nhà bán hàng</li>
-                    <li><i class="fas fa-angle-right"></i>Sản xuất video bán hàng chuyên nghiệp</li>
-                    <li><i class="fas fa-angle-right"></i>Vận hành quảng cáo đa nền tảng</li>
-                    <li><i class="fas fa-angle-right"></i>Triển khai xây dựng kênh TikTok và Livestream</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <ul class="footer-list">
-                    <li><i class="fas fa-angle-right"></i>Xây dựng gian hàng</li>
-                    <li><i class="fas fa-angle-right"></i>Thiết kế hình ảnh, thông tin sản phẩm</li>
-                    <li><i class="fas fa-angle-right"></i>Tối ưu tiêu đề, mô tả chuẩn SEO</li>
-                    <li><i class="fas fa-angle-right"></i>Tăng số bán, đánh giá cho sản phẩm</li>
-                    <li><i class="fas fa-angle-right"></i>Set up hệ thống tài khoản quảng cáo</li>
-                    <li><i class="fas fa-angle-right"></i>Nghiên cứu thị trường, đưa ra phương án</li>
-                </ul>
-            </div>
-            <div class="footer-col footer-contact">
-                <h3>THÔNG TIN LIÊN HỆ:</h3>
-                <p>CÔNG TY CỔ PHẦN EDUCI GROUP</p>
-                <p>Hotline: 037 6269 886</p>
-                <p>Địa chỉ: Zone 5 Tầng 4, tòa ROMAN Plaza đường Tố Hữu, Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
-                <p>Website: educi.vn / educi.edu.vn</p>
-                <p>Email: educivn@gmail.com</p>
-            </div>
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">EDUCI</div>
+          <div class="footer-tagline">Trao giá trị, trọn niềm tin</div>
         </div>
-        <div class="footer-bottom">©2020 All rights reserved educi.vn</div>
+        <div class="footer-col">
+          <ul class="footer-list">
+            <li><i class="fas fa-angle-right"></i>Vận hành gian hàng TikTok Shop không thu phí</li>
+            <li><i class="fas fa-angle-right"></i>Vận hành gian hàng TMĐT có thu phí cố định</li>
+            <li><i class="fas fa-angle-right"></i>Triển khai toàn diện cho nhà bán hàng</li>
+            <li><i class="fas fa-angle-right"></i>Sản xuất video bán hàng chuyên nghiệp</li>
+            <li><i class="fas fa-angle-right"></i>Vận hành quảng cáo đa nền tảng</li>
+            <li><i class="fas fa-angle-right"></i>Triển khai xây dựng kênh TikTok và Livestream</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <ul class="footer-list">
+            <li><i class="fas fa-angle-right"></i>Xây dựng gian hàng</li>
+            <li><i class="fas fa-angle-right"></i>Thiết kế hình ảnh, thông tin sản phẩm</li>
+            <li><i class="fas fa-angle-right"></i>Tối ưu tiêu đề, mô tả chuẩn SEO</li>
+            <li><i class="fas fa-angle-right"></i>Tăng số bán, đánh giá cho sản phẩm</li>
+            <li><i class="fas fa-angle-right"></i>Set up hệ thống tài khoản quảng cáo</li>
+            <li><i class="fas fa-angle-right"></i>Nghiên cứu thị trường, đưa ra phương án</li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h3>THÔNG TIN LIÊN HỆ:</h3>
+          <p>CÔNG TY CỔ PHẦN EDUCI GROUP</p>
+          <p>Hotline: 037 6269 886</p>
+          <p>Địa chỉ: Zone 5 Tầng 4, tòa ROMAN Plaza đường Tố Hữu, Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
+          <p>Website: educi.vn / educi.edu.vn</p>
+          <p>Email: educivn@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">©2020 All rights reserved educi.vn</div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script>
-        const caseStudies = [{ id: 1, title: "CASE STUDY: KANTA STORE", desc: "Vận hành Shop nội thất Kanta Store từ 800 TRIỆU TRONG 3 THÁNG đạt doanh thu 2 tỷ/tháng", thumb: "./images/case_2.png", edit: "https://www.canva.com/design/DAGeCFV3Hmg/4KSo_WgfJ63IvVesUrGp5A/edit" }, { id: 2, title: "CASE STUDY: ĐÈN LIVESTREAM", desc: "Coaching xây dựng SHOP đèn live TỪ CON SỐ 0 SAU 3 THÁNG đạt doanh thu 1 tỷ/tháng", thumb: "./images/case_1.png", edit: "https://www.canva.com/design/DAGeM9xdJgc/VSO-R-gtPRQmEbsTYoF-Tg/edit" }, { id: 3, title: "CASE STUDY: CỐC GIỮ NHIỆT", desc: "Coaching xây dựng SHOP cốc giữ nhiệt TỪ CON SỐ 0 SAU 4 THÁNG đạt doanh thu 1 tỷ", thumb: "./images/case_3.png", edit: "https://www.canva.com/design/DAGeM9xdJgc/VSO-R-gtPRQmEbsTYoF-Tg/edit" }];
-        function renderCards(list) { const container = document.getElementById("cards-container");[...list].reverse().forEach(item => { const card = document.createElement("div"); card.className = "card"; card.innerHTML = `<img src="${item.thumb}" alt="${item.title}"/><div class="card-content"><div><div class="card-title">${item.title}</div><div class="card-desc">${item.desc}</div></div><div class="card-footer"><a href="${item.edit}" target="_blank">Xem</a></div></div>`; container.appendChild(card); }); }
-        document.addEventListener("DOMContentLoaded", () => renderCards(caseStudies));
+      const caseStudies = [
+        { id: 1, title: "CASE STUDY: KANTA STORE", desc: "Vận hành Shop nội thất Kanta Store từ 800 TRIỆU TRONG 3 THÁNG đạt doanh thu 2 tỷ/tháng", thumb: "./images/case_2.png", edit: "https://www.canva.com/design/DAGeCFV3Hmg/4KSo_WgfJ63IvVesUrGp5A/edit" },
+        { id: 2, title: "CASE STUDY: ĐÈN LIVESTREAM", desc: "Coaching xây dựng SHOP đèn live TỪ CON SỐ 0 SAU 3 THÁNG đạt doanh thu 1 tỷ/tháng", thumb: "./images/case_1.png", edit: "https://www.canva.com/design/DAGeM9xdJgc/VSO-R-gtPRQmEbsTYoF-Tg/edit" },
+        { id: 3, title: "CASE STUDY: CỐC GIỮ NHIỆT", desc: "Coaching xây dựng SHOP cốc giữ nhiệt TỪ CON SỐ 0 SAU 4 THÁNG đạt doanh thu 1 tỷ", thumb: "./images/case_3.png", edit: "https://www.canva.com/design/DAGeM9xdJgc/VSO-R-gtPRQmEbsTYoF-Tg/edit" },
+        { id: 4, title: "CASE STUDY: TOPWAX", desc: "Coaching xây dựng SHOP TOPWAX TỪ CON SỐ 0 SAU 1,5 THÁNG đạt doanh thu 757 triệu", thumb: "./images/case_4.png", edit: "https://www.canva.com/design/DAGeUlC3PXk/jXKQL8n4DipuKhGGJqPm2w/edit" },
+        { id: 5, title: "CASE STUDY: VANESA", desc: "Coaching xây dựng SHOP VANESA TỪ CON SỐ 0 SAU 1,5 THÁNG đạt doanh thu 800 triệu", thumb: "./images/case_5.png", edit: "https://www.canva.com/design/DAGeUFxPnQc/jYyCfmk2hNgx7rzpfFBRLQ/edit" },
+        { id: 6, title: "CASE STUDY: MIHA BEDDING", desc: "Xây dựng gian hàng MIHA BEDDING TỪ CON SỐ 0 SAU 2 THÁNG đạt doanh thu 1 tỷ", thumb: "./images/case_7.png", edit: "https://www.canva.com/design/DAGcJzAG5so/-ro3JCh3Tbc9c_hEDlJblw/edit" },
+        { id: 7, title: "CASE STUDY: KAUKI", desc: "Coaching xây dựng SHOP KAUKI TỪ CON SỐ 0 SAU 3 THÁNG đạt doanh thu 1,3 tỷ", thumb: "./images/case_6.png", edit: "https://www.canva.com/design/DAGccNwyji4/pK98q1ZBwOLE6-QSdcJK2g/edit" }
+      ];
+      const itemsPerPage = 6;
+      let currentPage = 1;
+      function renderCards(page) {
+        const container = document.getElementById('cards-container'); container.innerHTML = '';
+        const start = (page - 1) * itemsPerPage;
+        caseStudies.slice(start, start + itemsPerPage).forEach(item => {
+          const card = document.createElement('div'); card.className = 'card';
+          card.innerHTML = `<img src="${item.thumb}" alt="${item.title}" />
+            <div class="card-content">
+              <div><div class="card-title">${item.title}</div><div class="card-desc">${item.desc}</div></div>
+              <div class="card-footer"><a href="${item.edit}" target="_blank">Xem</a></div>
+            </div>`;
+          container.appendChild(card);
+        });
+      }
+      function renderPagination() {
+        const pagination = document.getElementById('pagination'); pagination.innerHTML = '';
+        const totalPages = Math.ceil(caseStudies.length / itemsPerPage);
+        const prevBtn = document.createElement('button'); prevBtn.textContent = '« Trước'; prevBtn.classList.toggle('disabled', currentPage===1); prevBtn.onclick = ()=>changePage(currentPage-1); pagination.appendChild(prevBtn);
+        for(let i=1;i<=totalPages;i++){ const btn=document.createElement('button'); btn.textContent=i; btn.classList.toggle('active', i===currentPage); btn.onclick=()=>changePage(i); pagination.appendChild(btn);}        
+        const nextBtn=document.createElement('button'); nextBtn.textContent='Tiếp »'; nextBtn.classList.toggle('disabled', currentPage===totalPages); nextBtn.onclick=()=>changePage(currentPage+1); pagination.appendChild(nextBtn);
+      }
+      function changePage(page){ const totalPages=Math.ceil(caseStudies.length/itemsPerPage); if(page<1||page>totalPages)return; currentPage=page; renderCards(currentPage); renderPagination(); window.scrollTo({top:document.getElementById('case-studies').offsetTop-80, behavior:'smooth'}); }
+      document.addEventListener('DOMContentLoaded',()=>{ renderCards(currentPage); renderPagination(); });
     </script>
-</body>
-
+  </body>
 </html>
